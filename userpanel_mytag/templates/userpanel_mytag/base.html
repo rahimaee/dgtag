@@ -1,0 +1,23 @@
+{% extends 'shared/userpanel/_MainLayout.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            {% if Cards %}
+                {% for object in Cards %}
+                    <li>
+                        <a href="{% url 'userpanel_mytag:detail' pk=object.pk %}">Collection
+                            ID {{ object }}</a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>No collections</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
