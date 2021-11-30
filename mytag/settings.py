@@ -133,7 +133,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'no_reply@dgtag.ir'
 EMAIL_HOST_PASSWORD = 'mohammad13271326'
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 

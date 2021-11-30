@@ -1,13 +1,13 @@
-{% extends "userpanel_mytag/base.html" %}
+{% extends 'userpanel_mytag/base.html' %}
 {% block content %}
     <div class="card">
         <div class="card-header">
-            <h1><b>{{ object.FirstName }} {{ object.LastName }}</b></h1>
+            <h1><b>Collection ID {{ object }}</b></h1>
         </div>
         <div class="card-body">
             <table class="table">
                 <!--for inline added titles-->
-                {% if object.has_ContactNumbers %}
+                {% if object.has_titles %}
                     {% for title in object.has_ContactNumbers.all %}
                         <tr>
                             <th>Title @{{ title.Name }}</th>
@@ -17,23 +17,32 @@
                     {% endfor %}
                 {% endif %}
                 <!--end-->
-                {% if object.ProfileImg %}
+                {% if object.FirstName %}
                     <tr>
-                        <th>Subject</th>
-                        <td>{{ object.ProfileImg }}</td>
+                        <th>FirstName</th>
+                        <td>{{ object.FirstName }}</td>
                     </tr>
                 {% endif %}
-                {% if object.owner %}
+                {% if object.LastName %}
                     <tr>
-                        <th>Owner</th>
-                        <td>{{ object.owner }}</td>
+                        <th>LastName</th>
+                        <td>{{ object.LastName }}</td>
                     </tr>
                 {% endif %}
-                {% if object.note %}
+                {% if object.Company %}
                     <tr>
-                        <th>Note</th>
-                        <td>{{ object.note }}</td>
+                        <th>Company</th>
+                        <td>{{ object.Company }}</td>
                     </tr>
+                    <tr>
+                        <th>WorkName</th>
+                        <td>{{ object.WorkName }}</td>
+                    </tr>
+                    <tr>
+                        <th>WorkName</th>
+                        <td>{{ object.WorkName }}</td>
+                    </tr>
+
                 {% endif %}
             </table>
             <a class="btn btn-outline-info" href="{% url 'userpanel_mytag:update' pk=object.id %}">Update</a>

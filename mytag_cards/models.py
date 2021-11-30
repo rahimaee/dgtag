@@ -58,7 +58,7 @@ class Card(models.Model):
     verification = models.BooleanField(default=False, verbose_name='تایید هویت')
     CardId = models.IntegerField(verbose_name='ایدی کاربر در url')
     BuildTime = models.DateTimeField(verbose_name='زمان ساخت کارت')
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, related_name="collections", on_delete=models.CASCADE)
     objects = CardManager()
 
     class Meta:
