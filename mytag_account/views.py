@@ -3,13 +3,18 @@ from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
+from django.contrib.sites.shortcuts import get_current_site
 # Create your views here.
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
+from django.utils.encoding import force_text, force_bytes
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
 from mytag import settings
 from mytag_account.forms import LoginForm, RegisterForm
+from mytag_account.tokens import account_activation_token
 
 
 def user_login_page(request):
@@ -39,12 +44,20 @@ def user_register_page(request):
         user_name = register_form.cleaned_data.get('user_name')
         password = register_form.cleaned_data.get('password')
         email = register_form.cleaned_data.get('email')
-        User.objects.create_user(username=user_name, email=email, password=password)
+        user = User.objects.create_user(username=user_name, email=email, password=password)
         subject = 'خوش آمد گویی'
         message = f'سلام به دی جی تگ خوش امدید'
         email_from = settings.EMAIL_HOST_USER
         recipient_list = [email, ]
         send_mail(subject, message, email_from, recipient_list)
+        mail_subject = 'Activate your blog account.'
+        message = render_to_string('mytag_account/acc_active_email.html', {
+            'user': user,
+            'domain': get_current_site,
+            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            'token': account_activation_token.make_token(user),
+        })
+        send_mail(mail_subject, message, email_from, recipient_list)
         return redirect('account:login')
 
     context = {
@@ -63,3 +76,18 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       "please make sure you've entered the address you registered with, and check your spam folder."
     success_url = reverse_lazy('account:login')
 
+
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+        # return redirect('home')
+        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+    else:
+        return HttpResponse('Activation link is invalid!')
