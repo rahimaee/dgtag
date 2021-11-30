@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView
 
 from mytag_cards.models import Card
-from userpanel_mytag.forms import CardForm, CardFormset, CardSocialNetworkFormset
+from userpanel_mytag.forms import CardForm, CardFormset
 
 
 class HomepageView(TemplateView):
@@ -45,16 +45,16 @@ class MyTagCreate(CreateView):
         data = super(MyTagCreate, self).get_context_data(**kwargs)
         if self.request.POST:
             data['titles'] = CardFormset(self.request.POST)
-            data['cards'] = CardSocialNetworkFormset(self.request.POST)
+            # data['cards'] = CardSocialNetworkFormset(self.request.POST)
         else:
             data['titles'] = CardFormset()
-            data['cards'] = CardSocialNetworkFormset()
+            # data['cards'] = CardSocialNetworkFormset()
         return data
 
     def form_valid(self, form):
         context = self.get_context_data()
         titles = context['titles']
-        cards = context['cards']
+        # cards = context['cards']
         with transaction.atomic():
             form.instance.created_by = self.request.user
             form.instance.CardId = 222
@@ -64,9 +64,9 @@ class MyTagCreate(CreateView):
             if titles.is_valid():
                 titles.instance = self.object
                 titles.save()
-            if cards.is_valid():
-                cards.instance = self.object
-                cards.save()
+            # if cards.is_valid():
+            #     cards.instance = self.object
+            #     cards.save()
         return super(MyTagCreate, self).form_valid(form)
 
     def get_success_url(self):
@@ -85,10 +85,10 @@ class MyTagUpdate(UpdateView):
                 data = super(MyTagUpdate, self).get_context_data(**kwargs)
                 if self.request.POST:
                     data['titles'] = CardFormset(self.request.POST, instance=self.object)
-                    data['cards'] = CardSocialNetworkFormset(self.request.POST, instance=self.object)
+                    # data['cards'] = CardSocialNetworkFormset(self.request.POST, instance=self.object)
                 else:
                     data['titles'] = CardFormset(instance=self.object)
-                    data['cards'] = CardSocialNetworkFormset(instance=self.object)
+                    # data['cards'] = CardSocialNetworkFormset(instance=self.object)
                 return data
             else:
                 raise Http404()
@@ -98,16 +98,14 @@ class MyTagUpdate(UpdateView):
     def form_valid(self, form):
         context = self.get_context_data()
         titles = context['titles']
-        cards = context['cards']
+        # cards = context['cards']
         with transaction.atomic():
             form.instance.created_by = self.request.user
             self.object = form.save()
             if titles.is_valid():
                 titles.instance = self.object
+                # cards.instance = self.object
                 titles.save()
-            if cards.is_valid():
-                cards.instance = self.object
-                cards.save()
         return super(MyTagUpdate, self).form_valid(form)
 
     def get_success_url(self):

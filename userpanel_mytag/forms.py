@@ -80,22 +80,22 @@ class ContactNumbersForm(forms.ModelForm):
         }
 
 
-class SocialNetworkForm(forms.ModelForm):
-    class Meta:
-        model = SocialNetwork
-        exclude = ()
-        fields = (
-            'Name',
-            'Url',
-            'Type',
-
-        )
-        widgets = {
-            'Name': forms.TextInput(attrs={'class': 'form-control'}),
-            'Url': forms.TextInput(attrs={'class': 'form-control'}),
-            'Type': forms.Select(attrs={'class': 'form-control'}),
-
-        }
+# class SocialNetworkForm(forms.ModelForm):
+#     class Meta:
+#         model = SocialNetwork
+#         exclude = ()
+#         fields = (
+#             'Name',
+#             'Url',
+#             'Type',
+#
+#         )
+#         widgets = {
+#             'Name': forms.TextInput(attrs={'class': 'form-control'}),
+#             'Url': forms.TextInput(attrs={'class': 'form-control'}),
+#             'Type': forms.Select(attrs={'class': 'form-control'}),
+#
+#         }
 
 
 class CardForm(forms.ModelForm):
@@ -161,10 +161,10 @@ class CardForm(forms.ModelForm):
                     Fieldset('شماره ها', Formset('titles')),
                     css_class='form-group'
                 ),
-                Div(
-                    Fieldset('شماره ها', Formset('cards')),
-                    css_class='form-group'
-                ),
+                # Div(
+                #     Fieldset('شماره ها', Formset('cards')),
+                #     css_class='form-group'
+                # ),
                 ButtonHolder(Submit('submit', 'دخیره')),
             )
 
@@ -180,11 +180,11 @@ CardFormset = inlineformset_factory(
     # can_delete=True,
 )
 
-CardSocialNetworkFormset = inlineformset_factory(
-    Card,
-    SocialNetwork,
-    form=SocialNetworkForm,
-    fields=['Name', 'Url', 'Type'],
-    extra=2,
-    # can_delete=True,
-)
+# CardSocialNetworkFormset = inlineformset_factory(
+#     Card,
+#     SocialNetwork,
+#     form=SocialNetworkForm,
+#     fields=['Name', 'Url', 'Type'],
+#     extra=2,
+#     # can_delete=True,
+# )
