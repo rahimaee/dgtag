@@ -56,9 +56,10 @@ def user_register_page(request):
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = 'mytag_account/user_password_reset.html'
     email_template_name = 'mytag_account/password_reset_email.html'
-    subject_template_name = 'mytag_account/password_reset_email.html'
+    subject_template_name = 'mytag_account/email.html'
     success_message = "We've emailed you instructions for setting your password, " \
                       "if an account exists with the email you entered. You should receive them shortly." \
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
-    success_url = reverse_lazy('account:register')
+    success_url = reverse_lazy('account:login')
+
