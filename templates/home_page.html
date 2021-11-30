@@ -1,636 +1,784 @@
+{% extends 'shared/home/_MainLayout.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="fa">
+{% block body_contect %}
+    <!-- Hero Area Start -->
+    <div id="home" class="hero-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex align-self-center">
+                    <div class="left-content">
+                        <div class="content">
+                            <h1 class="title">
+                                کارت ویزیت دیجیتال شما
+                            </h1>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> دی جی تگ </title>
-    <!-- favicon -->
-    <link rel="shortcut icon" href="{% static 'img/logodgtag.png' %}" type="image/x-icon">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap-rtl.min.css' %}">
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
-    <!-- Flat Icon -->
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <!-- animate -->
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <!-- AOS css -->
-    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- responsive -->
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-</head>
-
-<body class="home7">
-
-<!-- preloader area start -->
-<!-- <div class="preloader" id="preloader">
-  <div class="preloader-inner">
-    <div class="cube-wrapper">
-      <div class="cube-folding">
-        <span class="leaf1"></span>
-        <span class="leaf2"></span>
-        <span class="leaf3"></span>
-        <span class="leaf4"></span>
-      </div>
-      <span class="loading" data-name="Loading">در حال بارگذاری</span>
+                            <p class="subtitle">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                            </p>
+                            <div class="links">
+                                <a href="#" class="mybtn3 mybtn-light"><span>همین حالا بخرید</span> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-first order-lg-last">
+                    <div class="right-img">
+                        <div class="discount-circle">
+                        </div>
+                        <img class="img-fluid img" src="{% static 'img/hm1.png' %}" alt="دی جی تگ">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div> -->
-<!-- preloader area end -->
+    <!-- Hero Area End -->
 
-<!-- Navebar Area start -->
-<header class="navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 p-0">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="{% url 'starting_page' %}">
-                        <img src="{% static 'img/logodgtag.png' %}" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu"
-                            aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="mainmenu">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#home">صفحه اصلی</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about">درباره ما</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#feature">ویژگی ها</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pricing">محصولات</a>
-                            </li>
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link active dropdown-toggle" role="button" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    صفحات
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="blog-grid.html"
-                                    ><i class="fas fa-chevron-left"></i> وبلاگ سه شبکه
-                                        ای</a
-                                    >
-                                    <a class="dropdown-item" href="blog-sidebar.html"
-                                    ><i class="fas fa-chevron-left"></i>وبلاگ با نوار
-                                        کناری</a
-                                    >
-                                    <a
-                                            class="dropdown-item"
-                                            href="blog-details-with-sidebar.html"
-                                    ><i class="fas fa-chevron-left"></i>جزئیات وبلاگ با
-                                        نوار کناری</a
-                                    >
-                                    <a class="dropdown-item" href="blog-details.html"
-                                    ><i class="fas fa-chevron-left"></i>جزئیات وبلاگ</a
-                                    >
-                                    <a class="dropdown-item" href="login.html"
-                                    ><i class="fas fa-chevron-left"></i>وارد شدن</a
-                                    >
-                                    <a class="dropdown-item" href="register.html"
-                                    ><i class="fas fa-chevron-left"></i>ثبت نام</a
-                                    >
-                                    <a class="dropdown-item" href="forgot-pass.html"
-                                    ><i class="fas fa-chevron-left"></i>فراموشی رمز عبور</a
-                                    >
-                                    <a class="dropdown-item" href="404.html"
-                                    ><i class="fas fa-chevron-left"></i>404</a
-                                    >
+    <!-- About Area Start -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title extra">
+                        <h2 class="title">چرا محصولات ما بهترینند</h2>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="box" data-aos="fade-right">
+                        <div class="inner-box">
+                            <div class="icon">
+                                <i class="flaticon-art"></i>
+                            </div>
+                            <h4 class="title">طراحی خلاقانه</h4>
+                            <p class="text textalign">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box" data-aos="fade-up">
+                        <div class="inner-box">
+                            <div class="icon">
+                                <i class="flaticon-apps"></i>
+                            </div>
+                            <h4 class="title">نصب راحت</h4>
+                            <p class="text textalign">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box" data-aos="fade-left">
+                        <div class="inner-box">
+                            <div class="icon">
+                                <i class="flaticon-address"></i>
+                            </div>
+                            <h4 class="title">اشتراک موقیعت</h4>
+                            <p class="text textalign">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box" data-aos="fade-right">
+                        <div class="inner-box">
+                            <div class="icon">
+                                <i class="flaticon-speech-bubble"></i>
+                            </div>
+                            <h4 class="title">تماس تصویری</h4>
+                            <p class="text textalign">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box" data-aos="fade-up">
+                        <div class="inner-box">
+                            <div class="icon">
+                                <i class="flaticon-technical-support"></i>
+                            </div>
+                            <h4 class="title">کارایی بالا</h4>
+                            <p class="text textalign">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box" data-aos="fade-left">
+                        <div class="inner-box">
+                            <div class="icon">
+                                <i class="flaticon-camera-1"></i>
+                            </div>
+                            <h4 class="title">دوربین قوی</h4>
+                            <p class="text textalign">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Area End -->
+
+    <!-- We are best Area Start -->
+    <section class="whaybest">
+        <div class="container">
+            <div class="row row-one">
+                <div class="col-lg-6 d-flex">
+                    <div class="about-img">
+                        <img src="{% static 'img/cardf.png' %}" alt="نمونه کارت دی جی کارت">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info" data-aos="fade-left">
+                        <h2 class="info-title">
+                            تکنولوژی را قورت بده
+                        </h2>
+                        <ul class="feature-list">
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-alarm"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>شمارشگر</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#testimonial-area">سفارش</a>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-speech-bubble"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>تماس تصویری</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#faq">پرسش و پاسخ</a>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-camera"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>دوربین قوی</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">ارتباط با ما</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account:login' %}">ورود</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account:register' %}">عضویت</a>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-wifi"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>پشتیبانی وای‌فای</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
+                                </div>
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </div>
+
+            </div>
+
+            <div class="row ">
+                <div class="col-lg-6">
+                    <div class="info" data-aos="fade-right">
+                        <div class="round-shape"></div>
+                        <h2 class="info-title">
+                            تکنولوژی را قورت بده
+                        </h2>
+                        <ul class="feature-list">
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-alarm"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>شمارشگر</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-speech-bubble"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>تماس تصویری</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-camera"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>دوربین قوی</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-wifi"></i>
+                                </div>
+                                <div class="content">
+                                    <h4>پشتیبانی وای‌فای</h4>
+                                    <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex order-first order-lg-last">
+                    <div class="about-img">
+                        <img src="{% static 'img/backcard.png' %}" alt="دی کارت">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-<!-- Navebar Area End -->
+    </section>
+    <!--We are best Area Start -->
 
-<!-- Hero Area Start -->
-<div id="home" class="hero-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 d-flex align-self-center">
-                <div class="left-content">
-                    <div class="content">
-                        <h1 class="title">
-                            کارت ویزیت دیجیتال شما
-                        </h1>
-
-                        <p class="subtitle">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                        </p>
-                        <div class="links">
-                            <a href="#" class="mybtn3 mybtn-light"><span>همین حالا بخرید</span> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 order-first order-lg-last">
-                <div class="right-img">
-                    <div class="discount-circle">
-                    </div>
-                    <img class="img-fluid img" src="{% static 'img/hm1.png' %}" alt="دی جی تگ">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Hero Area End -->
-
-<!-- About Area Start -->
-<section class="about" id="about">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title extra">
-                    <h2 class="title">چرا محصولات ما بهترینند</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="box" data-aos="fade-right">
-                    <div class="inner-box">
-                        <div class="icon">
-                            <i class="flaticon-art"></i>
-                        </div>
-                        <h4 class="title">طراحی خلاقانه</h4>
-                        <p class="text textalign">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="box" data-aos="fade-up">
-                    <div class="inner-box">
-                        <div class="icon">
-                            <i class="flaticon-apps"></i>
-                        </div>
-                        <h4 class="title">نصب راحت</h4>
-                        <p class="text textalign">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="box" data-aos="fade-left">
-                    <div class="inner-box">
-                        <div class="icon">
-                            <i class="flaticon-address"></i>
-                        </div>
-                        <h4 class="title">اشتراک موقیعت</h4>
-                        <p class="text textalign">
+    <!-- Service Area start -->
+    <section class="feature" id="feature">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title">
+                        <h2 class="title">ویژگی های جذاب</h2>
+                        <p>
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="box" data-aos="fade-right">
-                    <div class="inner-box">
-                        <div class="icon">
-                            <i class="flaticon-speech-bubble"></i>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="left-feature" data-aos="fade-right">
+                        <div class="feature-box feature-box1">
+                            <div class="feature-circle">
+                                <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="details">
+                                <h4>
+                                    <a href="#" class="title">
+                                        ضربان قلب
+                                    </a>
+                                </h4>
+                                <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                    است</p>
+                            </div>
+                            <div class="icon-area">
+                                <div class="icon">
+                                    <i class="flaticon-heart"></i>
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="title">تماس تصویری</h4>
-                        <p class="text textalign">
+                        <div class="feature-box feature-box2">
+                            <div class="feature-circle">
+                                <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="details">
+                                <h4>
+                                    <a href="#" class="title">هشدار</a>
+                                </h4>
+                                <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                    است</p>
+                            </div>
+                            <div class="icon-area">
+                                <div class="icon">
+                                    <i class="flaticon-alarm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-box feature-box3">
+                            <div class="feature-circle">
+                                <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="details">
+                                <h4>
+                                    <a href="#" class="title">موقیعت یاب</a>
+                                </h4>
+                                <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                    است</p>
+                            </div>
+                            <div class="icon-area">
+                                <div class="icon">
+                                    <i class="flaticon-location"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="center-feature align-self-center">
+                        <img src="{% static 'img/phone.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="right-feature" data-aos="fade-left">
+                        <div class="feature-box feature-box4">
+                            <div class="feature-circle">
+                                <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="icon-area">
+                                <div class="icon">
+                                    <i class="flaticon-bluetooth"></i>
+                                </div>
+                            </div>
+                            <div class="details">
+                                <h4>
+                                    <a href="#" class="title">بلوتوث </a>
+                                </h4>
+                                <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                    است</p>
+                            </div>
+                        </div>
+                        <div class="feature-box feature-box5">
+                            <div class="feature-circle">
+                                <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="icon-area">
+                                <div class="icon">
+                                    <i class="flaticon-cloudy"></i>
+                                </div>
+                            </div>
+                            <div class="details">
+                                <h4>
+                                    <a href="#" class="title">بروزرسانی</a>
+                                </h4>
+                                <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                    است</p>
+                            </div>
+                        </div>
+                        <div class="feature-box feature-box6">
+                            <div class="feature-circle">
+                                <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="icon-area">
+                                <div class="icon">
+                                    <i class="flaticon-video-call"></i>
+                                </div>
+                            </div>
+                            <div class="details">
+                                <h4>
+                                    <a href="#" class="title">تماس تصویری</a>
+                                </h4>
+                                <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                    است</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service Area End -->
+
+    <!-- پر بازدیدترین های هفته Start -->
+    <section class="dealofweek">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title">
+                        <h2 class="title">پر بازدیدترین های هفته</h2>
+                        <p>
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="box" data-aos="fade-up">
-                    <div class="inner-box">
-                        <div class="icon">
-                            <i class="flaticon-technical-support"></i>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="deal-slider-area" data-aos="fade-up">
+                        <div class="deal-slider">
+                            <div class="item">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="left-area">
+                                                <img src="{% static 'allcard.png' %}" alt="دی جی تگ">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 d-flex">
+                                            <div class="right-area">
+                                                <ul class="stars">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="name">
+                                                    ساعت هوشمند آبی
+                                                </h4>
+                                                <p class="description">
+                                                    لورم ایپسوم متن ساختگی با صنعت چاپ است
+                                                </p>
+                                                <div class="price">
+                                                    <p>
+                                                        <span>100 تومان</span>
+                                                        <del>200 تومان</del>
+                                                    </p>
+                                                </div>
+                                                <div class="deal-counter">
+                                                    <div data-countdown="2020/12/09"></div>
+                                                </div>
+                                                <div class="links">
+                                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="left-area">
+                                                <img src="assets/images/w3.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 d-flex">
+                                            <div class="right-area">
+                                                <ul class="stars">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="name">
+                                                    ساعت هوشمند خاکستری
+                                                </h4>
+                                                <p class="description">
+                                                    لورم ایپسوم متن ساختگی با صنعت چاپ است
+                                                </p>
+                                                <div class="price">
+                                                    <p>
+                                                        <span>100 تومان</span>
+                                                        <del>200 تومان</del>
+                                                    </p>
+                                                </div>
+                                                <div class="deal-counter">
+                                                    <div data-countdown="2020/12/09"></div>
+                                                </div>
+                                                <div class="links">
+                                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="title">کارایی بالا</h4>
-                        <p class="text textalign">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- پر بازدیدترین های هفته Start -->
+
+    <!-- Pricing Area Start -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title">
+                        <h2 class="title">محصولات باکیفیت ما</h2>
+                        <p>
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="box" data-aos="fade-left">
-                    <div class="inner-box">
-                        <div class="icon">
-                            <i class="flaticon-camera-1"></i>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product-slider" data-aos="fade-up">
+                        <div class="item">
+                            <div class="single-product">
+                                <div class="img">
+                                    <img src="{% static 'img/cardf.png' %}" alt="بیزینس کارت دی جی کارت">
+
+                                    <div class="links">
+                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <ul class="stars">
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star-half"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <p class="new-price">
+                                            135 تومان
+                                        </p>
+                                        <small>
+                                            <del>
+                                                400 تومان
+                                            </del>
+                                        </small>
+                                    </div>
+
+                                    <h4 class="title">
+                                        پرولب آبی
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="title">دوربین قوی</h4>
-                        <p class="text textalign">
+                        <div class="item">
+                            <div class="single-product">
+                                <div class="img">
+                                    <img src="assets/images/w2.png" alt="">
+
+                                    <div class="links">
+                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <ul class="stars">
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star-half"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <p class="new-price">
+                                            135 تومان
+                                        </p>
+                                        <small>
+                                            <del>
+                                                193 تومان
+                                            </del>
+                                        </small>
+                                    </div>
+
+                                    <h4 class="title">
+                                        پرولب آبی
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="single-product">
+                                <div class="img">
+                                    <img src="assets/images/w3.png" alt="">
+
+                                    <div class="links">
+                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <ul class="stars">
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star-half"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <p class="new-price">
+                                            135 تومان
+                                        </p>
+                                        <small>
+                                            <del>
+                                                193 تومان
+                                            </del>
+                                        </small>
+                                    </div>
+
+                                    <h4 class="title">
+                                        پرولب آبی
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="single-product">
+                                <div class="img">
+                                    <img src="assets/images/w4.png" alt="">
+
+                                    <div class="links">
+                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <ul class="stars">
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star-half"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="price">
+                                        <p class="new-price">
+                                            135 تومان
+                                        </p>
+                                        <small>
+                                            <del>
+                                                193 تومان
+                                            </del>
+                                        </small>
+                                    </div>
+
+                                    <h4 class="title">
+                                        پرولب آبی
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- pricing part End -->
+
+    <!--  Video Area Start -->
+    <section class="video" id="video">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title">
+                        <h2 class="title">چرا ما را انتخاب می‌کنند</h2>
+                        <p>
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- About Area End -->
-
-<!-- We are best Area Start -->
-<section class="whaybest">
-    <div class="container">
-        <div class="row row-one">
-            <div class="col-lg-6 d-flex">
-                <div class="about-img">
-                    <img src="{% static 'img/cardf.png' %}" alt="نمونه کارت دی جی کارت">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="info" data-aos="fade-left">
-                    <h2 class="info-title">
-                        تکنولوژی را قورت بده
-                    </h2>
-                    <ul class="feature-list">
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-alarm"></i>
-                            </div>
-                            <div class="content">
-                                <h4>شمارشگر</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-speech-bubble"></i>
-                            </div>
-                            <div class="content">
-                                <h4>تماس تصویری</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-camera"></i>
-                            </div>
-                            <div class="content">
-                                <h4>دوربین قوی</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-wifi"></i>
-                            </div>
-                            <div class="content">
-                                <h4>پشتیبانی وای‌فای</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row ">
-            <div class="col-lg-6">
-                <div class="info" data-aos="fade-right">
-                    <div class="round-shape"></div>
-                    <h2 class="info-title">
-                        تکنولوژی را قورت بده
-                    </h2>
-                    <ul class="feature-list">
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-alarm"></i>
-                            </div>
-                            <div class="content">
-                                <h4>شمارشگر</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-speech-bubble"></i>
-                            </div>
-                            <div class="content">
-                                <h4>تماس تصویری</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-camera"></i>
-                            </div>
-                            <div class="content">
-                                <h4>دوربین قوی</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="flaticon-wifi"></i>
-                            </div>
-                            <div class="content">
-                                <h4>پشتیبانی وای‌فای</h4>
-                                <p class="textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6 d-flex order-first order-lg-last">
-                <div class="about-img">
-                    <img src="{% static 'img/backcard.png' %}" alt="دی کارت">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--We are best Area Start -->
-
-<!-- Service Area start -->
-<section class="feature" id="feature">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title">
-                    <h2 class="title">ویژگی های جذاب</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="left-feature" data-aos="fade-right">
-                    <div class="feature-box feature-box1">
-                        <div class="feature-circle">
-                            <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
-                        </div>
-                        <div class="details">
-                            <h4>
-                                <a href="#" class="title">
-                                    ضربان قلب
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="video-wrapper">
+                        <div class="video-box" data-aos="fade-right">
+                            <div class="overly"></div>
+                            <div class="play-icon">
+                                <a href="https://www.youtube.com/watch?v=4DCTTrGjGU4" class="video-play-btn mfp-iframe">
+                                    <i class="fas fa-play"></i>
                                 </a>
-                            </h4>
-                            <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است</p>
-                        </div>
-                        <div class="icon-area">
-                            <div class="icon">
-                                <i class="flaticon-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-box feature-box2">
-                        <div class="feature-circle">
-                            <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
-                        </div>
-                        <div class="details">
-                            <h4>
-                                <a href="#" class="title">هشدار</a>
-                            </h4>
-                            <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است</p>
-                        </div>
-                        <div class="icon-area">
-                            <div class="icon">
-                                <i class="flaticon-alarm"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-box feature-box3">
-                        <div class="feature-circle">
-                            <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
-                        </div>
-                        <div class="details">
-                            <h4>
-                                <a href="#" class="title">موقیعت یاب</a>
-                            </h4>
-                            <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است</p>
-                        </div>
-                        <div class="icon-area">
-                            <div class="icon">
-                                <i class="flaticon-location"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="center-feature align-self-center">
-                    <img src="{% static 'img/phone.png' %}" alt="">
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="right-feature" data-aos="fade-left">
-                    <div class="feature-box feature-box4">
-                        <div class="feature-circle">
-                            <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
-                        </div>
-                        <div class="icon-area">
-                            <div class="icon">
-                                <i class="flaticon-bluetooth"></i>
-                            </div>
-                        </div>
-                        <div class="details">
-                            <h4>
-                                <a href="#" class="title">بلوتوث </a>
-                            </h4>
-                            <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است</p>
-                        </div>
-                    </div>
-                    <div class="feature-box feature-box5">
-                        <div class="feature-circle">
-                            <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
-                        </div>
-                        <div class="icon-area">
-                            <div class="icon">
-                                <i class="flaticon-cloudy"></i>
-                            </div>
-                        </div>
-                        <div class="details">
-                            <h4>
-                                <a href="#" class="title">بروزرسانی</a>
-                            </h4>
-                            <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است</p>
-                        </div>
-                    </div>
-                    <div class="feature-box feature-box6">
-                        <div class="feature-circle">
-                            <div class="feature-circle-inner"><i class="fas fa-plus"></i></div>
-                        </div>
-                        <div class="icon-area">
-                            <div class="icon">
-                                <i class="flaticon-video-call"></i>
-                            </div>
-                        </div>
-                        <div class="details">
-                            <h4>
-                                <a href="#" class="title">تماس تصویری</a>
-                            </h4>
-                            <p class="text textalign">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Service Area End -->
-
-<!-- پر بازدیدترین های هفته Start -->
-<section class="dealofweek">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title">
-                    <h2 class="title">پر بازدیدترین های هفته</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="deal-slider-area" data-aos="fade-up">
-                    <div class="deal-slider">
-                        <div class="item">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="left-area">
-                                            <img src="{% static 'allcard.png' %}" alt="دی جی تگ">
-                                        </div>
+                <div class="col-lg-6">
+                    <div class="row" data-aos="fade-left">
+                        <div class="col-lg-6">
+                            <div class="fun-box">
+                                <div class="inner-content inner-content1">
+                                    <div class="icon">
+                                        <i class="flaticon-guarantee"></i>
                                     </div>
-                                    <div class="col-lg-6 d-flex">
-                                        <div class="right-area">
-                                            <ul class="stars">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                            </ul>
-                                            <h4 class="name">
-                                                ساعت هوشمند آبی
-                                            </h4>
-                                            <p class="description">
-                                                لورم ایپسوم متن ساختگی با صنعت چاپ است
-                                            </p>
-                                            <div class="price">
-                                                <p>
-                                                    <span>100 تومان</span>
-                                                    <del>200 تومان</del>
-                                                </p>
-                                            </div>
-                                            <div class="deal-counter">
-                                                <div data-countdown="2020/12/09"></div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                            </div>
-                                        </div>
+                                    <h5 class="categori">یک سال ضمانت</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="fun-box">
+                                <div class="inner-content inner-content2">
+                                    <div class="icon">
+                                        <i class="flaticon-delivery-truck"></i>
                                     </div>
+                                    <h5 class="categori">ارسال سریع</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="left-area">
-                                            <img src="assets/images/w3.png" alt="">
-                                        </div>
+                        <div class="col-lg-6">
+                            <div class="fun-box">
+                                <div class="inner-content inner-content3">
+                                    <div class="icon">
+                                        <i class="flaticon-return"></i>
                                     </div>
-                                    <div class="col-lg-6 d-flex">
-                                        <div class="right-area">
-                                            <ul class="stars">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                </li>
-                                            </ul>
-                                            <h4 class="name">
-                                                ساعت هوشمند خاکستری
-                                            </h4>
-                                            <p class="description">
-                                                لورم ایپسوم متن ساختگی با صنعت چاپ است
-                                            </p>
-                                            <div class="price">
-                                                <p>
-                                                    <span>100 تومان</span>
-                                                    <del>200 تومان</del>
-                                                </p>
-                                            </div>
-                                            <div class="deal-counter">
-                                                <div data-countdown="2020/12/09"></div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                            </div>
-                                        </div>
+                                    <h5 class="categori">پشتیبانی محصول</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="fun-box">
+                                <div class="inner-content inner-content4">
+                                    <div class="icon">
+                                        <i class="flaticon-support-2"></i>
                                     </div>
+                                    <h5 class="categori">ارتباط آنلاین</h5>
                                 </div>
                             </div>
                         </div>
@@ -638,801 +786,452 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- پر بازدیدترین های هفته Start -->
+    </section>
+    <!-- Video Area End -->
 
-<!-- Pricing Area Start -->
-<section class="pricing" id="pricing">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title">
-                    <h2 class="title">محصولات باکیفیت ما</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="product-slider" data-aos="fade-up">
-                    <div class="item">
-                        <div class="single-product">
-                            <div class="img">
-                                <img src="{% static 'img/cardf.png' %}" alt="بیزینس کارت دی جی کارت">
 
-                                <div class="links">
-                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <ul class="stars">
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star-half"></i>
-                                    </li>
-                                </ul>
-                                <div class="price">
-                                    <p class="new-price">
-                                        135 تومان
-                                    </p>
-                                    <small>
-                                        <del>
-                                            400 تومان
-                                        </del>
-                                    </small>
-                                </div>
-
-                                <h4 class="title">
-                                    پرولب آبی
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-product">
-                            <div class="img">
-                                <img src="assets/images/w2.png" alt="">
-
-                                <div class="links">
-                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <ul class="stars">
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star-half"></i>
-                                    </li>
-                                </ul>
-                                <div class="price">
-                                    <p class="new-price">
-                                        135 تومان
-                                    </p>
-                                    <small>
-                                        <del>
-                                            193 تومان
-                                        </del>
-                                    </small>
-                                </div>
-
-                                <h4 class="title">
-                                    پرولب آبی
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-product">
-                            <div class="img">
-                                <img src="assets/images/w3.png" alt="">
-
-                                <div class="links">
-                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <ul class="stars">
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star-half"></i>
-                                    </li>
-                                </ul>
-                                <div class="price">
-                                    <p class="new-price">
-                                        135 تومان
-                                    </p>
-                                    <small>
-                                        <del>
-                                            193 تومان
-                                        </del>
-                                    </small>
-                                </div>
-
-                                <h4 class="title">
-                                    پرولب آبی
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-product">
-                            <div class="img">
-                                <img src="assets/images/w4.png" alt="">
-
-                                <div class="links">
-                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <ul class="stars">
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-star-half"></i>
-                                    </li>
-                                </ul>
-                                <div class="price">
-                                    <p class="new-price">
-                                        135 تومان
-                                    </p>
-                                    <small>
-                                        <del>
-                                            193 تومان
-                                        </del>
-                                    </small>
-                                </div>
-
-                                <h4 class="title">
-                                    پرولب آبی
-                                </h4>
-                            </div>
-                        </div>
+    <!-- Compare Area Start -->
+    <section class="compare-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title extra">
+                        <h2 class="title">محصولات مشابه</h2>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- pricing part End -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="compare-table table table-responsive-lg table-bordered table-striped"
+                           data-aos="fade-up">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">
+                                <div class="product-image">
+                                    <img src="assets/images/w1.png" alt="">
+                                </div>
+                                <h3 class="product-title">ساعت آبی</h3>
+                                <p class="product-subtitle">برای آقایان , خانم ها</p>
+                            </th>
+                            <th class="text-center">
+                                <div class="product-image">
+                                    <img src="assets/images/w2.png" alt="">
+                                </div>
+                                <h3 class="product-title">ساعت قرمز</h3>
+                                <p class="product-subtitle">برای آقایان , خانم ها</p>
+                            </th>
+                            <th class="text-center">
+                                <div class="product-image">
+                                    <img src="assets/images/w3.png" alt="">
+                                </div>
+                                <h3 class="product-title">ساعت مشکی</h3>
+                                <p class="product-subtitle">برای آقایان , خانم ها</p>
+                            </th>
+                            <th class="text-center">
+                                <div class="product-image">
+                                    <img src="assets/images/w4.png" alt="">
+                                </div>
+                                <h3 class="product-title">ساعت سفید</h3>
+                                <p class="product-subtitle">برای آقایان , خانم ها</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>قیمت</th>
+                            <th class="price text-center"> 900 تومان</th>
+                            <th class="price text-center">800 تومان</th>
+                            <th class="price text-center">700 تومان</th>
+                            <th class="price text-center">600 تومان</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>برند</th>
+                            <td class="text-center">آیفون</td>
+                            <td class="text-center">آیفون</td>
+                            <td class="text-center">آیفون</td>
+                            <td class="text-center">آیفون</td>
+                        </tr>
+                        <tr>
+                            <th>رنگ</th>
+                            <td class="text-center">سیاه</td>
+                            <td class="text-center">سفید</td>
+                            <td class="text-center">آبی</td>
+                            <td class="text-center">سیاه</td>
+                        </tr>
+                        <tr>
+                            <th>سازگار با</th>
+                            <td class="text-center">اندروید 4.0 و آیفون</td>
+                            <td class="text-center">اندروید 4.0 و آیفون</td>
+                            <td class="text-center">اندروید 4.0 و آیفون</td>
+                            <td class="text-center">اندروید 4.0 و آیفون</td>
+                        </tr>
+                        <tr>
+                            <th>رزولوشن</th>
+                            <td class="text-center">خوب</td>
+                            <td class="text-center">عالی</td>
+                            <td class="text-center">خوب</td>
+                            <td class="text-center">عالی</td>
+                        </tr>
+                        <tr>
+                            <th>وزن محصول</th>
+                            <td class="text-center">7.0 گرم</td>
+                            <td class="text-center">7.0 گرم</td>
+                            <td class="text-center">7.0 گرم</td>
+                            <td class="text-center">7.0 گرم</td>
+                        </tr>
+                        <tr>
+                            <th>سیستم عامل</th>
+                            <td class="text-center">آی او اس</td>
+                            <td class="text-center">آی او اس واندروید</td>
+                            <td class="text-center">اندروید</td>
+                            <td class="text-center"> آی او اس واندروید</td>
+                        </tr>
+                        <th>ظرفیت باتری</th>
+                        <td class="text-center">1700 میلی آمپر</td>
+                        <td class="text-center">1800 میلی آمپر</td>
+                        <td class="text-center">1900 میلی آمپر</td>
+                        <td class="text-center">1800 میلی آمپر</td>
+                        </tr>
+                        <tr>
+                        </tbody>
+                        <tfoot>
 
-<!--  Video Area Start -->
-<section class="video" id="video">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title">
-                    <h2 class="title">چرا ما را انتخاب می‌کنند</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="video-wrapper">
-                    <div class="video-box" data-aos="fade-right">
-                        <div class="overly"></div>
-                        <div class="play-icon">
-                            <a href="https://www.youtube.com/watch?v=4DCTTrGjGU4" class="video-play-btn mfp-iframe">
-                                <i class="fas fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="row" data-aos="fade-left">
-                    <div class="col-lg-6">
-                        <div class="fun-box">
-                            <div class="inner-content inner-content1">
-                                <div class="icon">
-                                    <i class="flaticon-guarantee"></i>
-                                </div>
-                                <h5 class="categori">یک سال ضمانت</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="fun-box">
-                            <div class="inner-content inner-content2">
-                                <div class="icon">
-                                    <i class="flaticon-delivery-truck"></i>
-                                </div>
-                                <h5 class="categori">ارسال سریع</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="fun-box">
-                            <div class="inner-content inner-content3">
-                                <div class="icon">
-                                    <i class="flaticon-return"></i>
-                                </div>
-                                <h5 class="categori">پشتیبانی محصول</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="fun-box">
-                            <div class="inner-content inner-content4">
-                                <div class="icon">
-                                    <i class="flaticon-support-2"></i>
-                                </div>
-                                <h5 class="categori">ارتباط آنلاین</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Video Area End -->
-
-
-<!-- Compare Area Start -->
-<section class="compare-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title extra">
-                    <h2 class="title">محصولات مشابه</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <table class="compare-table table table-responsive-lg table-bordered table-striped" data-aos="fade-up">
-                    <thead>
-                    <tr>
                         <th></th>
-                        <th class="text-center">
-                            <div class="product-image">
-                                <img src="assets/images/w1.png" alt="">
-                            </div>
-                            <h3 class="product-title">ساعت آبی</h3>
-                            <p class="product-subtitle">برای آقایان , خانم ها</p>
-                        </th>
-                        <th class="text-center">
-                            <div class="product-image">
-                                <img src="assets/images/w2.png" alt="">
-                            </div>
-                            <h3 class="product-title">ساعت قرمز</h3>
-                            <p class="product-subtitle">برای آقایان , خانم ها</p>
-                        </th>
-                        <th class="text-center">
-                            <div class="product-image">
-                                <img src="assets/images/w3.png" alt="">
-                            </div>
-                            <h3 class="product-title">ساعت مشکی</h3>
-                            <p class="product-subtitle">برای آقایان , خانم ها</p>
-                        </th>
-                        <th class="text-center">
-                            <div class="product-image">
-                                <img src="assets/images/w4.png" alt="">
-                            </div>
-                            <h3 class="product-title">ساعت سفید</h3>
-                            <p class="product-subtitle">برای آقایان , خانم ها</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>قیمت</th>
-                        <th class="price text-center"> 900 تومان</th>
-                        <th class="price text-center">800 تومان</th>
-                        <th class="price text-center">700 تومان</th>
-                        <th class="price text-center">600 تومان</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th>برند</th>
-                        <td class="text-center">آیفون</td>
-                        <td class="text-center">آیفون</td>
-                        <td class="text-center">آیفون</td>
-                        <td class="text-center">آیفون</td>
-                    </tr>
-                    <tr>
-                        <th>رنگ</th>
-                        <td class="text-center">سیاه</td>
-                        <td class="text-center">سفید</td>
-                        <td class="text-center">آبی</td>
-                        <td class="text-center">سیاه</td>
-                    </tr>
-                    <tr>
-                        <th>سازگار با</th>
-                        <td class="text-center">اندروید 4.0 و آیفون</td>
-                        <td class="text-center">اندروید 4.0 و آیفون</td>
-                        <td class="text-center">اندروید 4.0 و آیفون</td>
-                        <td class="text-center">اندروید 4.0 و آیفون</td>
-                    </tr>
-                    <tr>
-                        <th>رزولوشن</th>
-                        <td class="text-center">خوب</td>
-                        <td class="text-center">عالی</td>
-                        <td class="text-center">خوب</td>
-                        <td class="text-center">عالی</td>
-                    </tr>
-                    <tr>
-                        <th>وزن محصول</th>
-                        <td class="text-center">7.0 گرم</td>
-                        <td class="text-center">7.0 گرم</td>
-                        <td class="text-center">7.0 گرم</td>
-                        <td class="text-center">7.0 گرم</td>
-                    </tr>
-                    <tr>
-                        <th>سیستم عامل</th>
-                        <td class="text-center">آی او اس</td>
-                        <td class="text-center">آی او اس واندروید</td>
-                        <td class="text-center">اندروید</td>
-                        <td class="text-center"> آی او اس واندروید</td>
-                    </tr>
-                    <th>ظرفیت باتری</th>
-                    <td class="text-center">1700 میلی آمپر</td>
-                    <td class="text-center">1800 میلی آمپر</td>
-                    <td class="text-center">1900 میلی آمپر</td>
-                    <td class="text-center">1800 میلی آمپر</td>
-                    </tr>
-                    <tr>
-                    </tbody>
-                    <tfoot>
-
-                    <th></th>
-                    <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a></td>
-                    <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a></td>
-                    <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a></td>
-                    <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a></td>
-                    </tr>
-                    </tfoot>
-                </table>
+                        <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a>
+                        </td>
+                        <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a>
+                        </td>
+                        <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a>
+                        </td>
+                        <td class="text-center"><a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span></a>
+                        </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
+        </div>
+    </section>
+    <!-- Compare Area End -->
+
+
+    <!-- Testimonial Area Start -->
+    <section class="testimonial-area" id="testimonial-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title extra">
+                        <h2 class="title">دیدگاه خریداران </h2>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-7">
+                    <div class="testimonial-img" data-aos="fade-up">
+                        <img class="img1" src="assets/images/testimonialimage/1.jpg" alt="">
+                        <img class="img2" src="assets/images/testimonialimage/2.jpg" alt="">
+                        <img class="img3" src="assets/images/testimonialimage/1.jpg" alt="">
+                        <img class="img4" src="assets/images/testimonialimage/2.jpg" alt="">
+                        <img class="img5" src="assets/images/testimonialimage/1.jpg" alt="">
+                        <img class="img6" src="assets/images/testimonialimage/2.jpg" alt="">
+                    </div>
+                    <div class="testimonial-slider" data-aos="fade-up">
+                        <div class="item">
+                            <div class="client">
+                                <div class="client-image">
+                                    <img src="assets/images/testimonialimage/1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <p class="client-say">
+                                    خدمات پس از فروش عالی بود با تشکر از پاسخگویی
+                                </p>
+                                <h4 class="client-name">
+                                    <a href="#">
+                                        بیل گیتس
+                                    </a>
+                                </h4>
+                                <h5 class="designation">اپل</h5>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="client">
+                                <div class="client-image">
+                                    <img src="assets/images/testimonialimage/2.jpg" class="img-fluid" alt="">
+                                </div>
+                                <p class="client-say">
+                                    خدمات پس از فروش عالی بود با تشکر از پاسخگویی
+                                </p>
+                                <h4 class="client-name">
+                                    <a href="#">
+                                        پریسا تبریز
+                                    </a>
+                                </h4>
+                                <h5 class="designation">فیسبوک</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Area End -->
+
+    <!-- عضویت Area Start -->
+    <div class="subscribe-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title extra">
+                        <h2 class="title">عضویت در خبرنامه ما</h2>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="newsletter-form-area" data-aos="fade-up">
+                        <form action="#">
+                            <input type="email" placeholder="ایمیل خود را وارد کنید">
+                            <button type="submit">
+                                <span>عضویت</span> <i class="far fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</section>
-<!-- Compare Area End -->
+    <!-- عضویت Area End -->
 
-
-<!-- Testimonial Area Start -->
-<section class="testimonial-area" id="testimonial-area">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title extra">
-                    <h2 class="title">دیدگاه خریداران </h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
+    <!-- Partner Area Start -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title extra">
+                <h2 class="title">سوالات متداول</h2>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                </p>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-7">
-                <div class="testimonial-img" data-aos="fade-up">
-                    <img class="img1" src="assets/images/testimonialimage/1.jpg" alt="">
-                    <img class="img2" src="assets/images/testimonialimage/2.jpg" alt="">
-                    <img class="img3" src="assets/images/testimonialimage/1.jpg" alt="">
-                    <img class="img4" src="assets/images/testimonialimage/2.jpg" alt="">
-                    <img class="img5" src="assets/images/testimonialimage/1.jpg" alt="">
-                    <img class="img6" src="assets/images/testimonialimage/2.jpg" alt="">
-                </div>
-                <div class="testimonial-slider" data-aos="fade-up">
-                    <div class="item">
-                        <div class="client">
-                            <div class="client-image">
-                                <img src="assets/images/testimonialimage/1.jpg" class="img-fluid" alt="">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel-group accordion" id="accordion-1" data-aos="fade-right">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 data-toggle="collapse" aria-expanded="true" data-target="#one" aria-controls="one"
+                                    class="panel-title">
+                                    لورم ایپسوم چیست؟
+                                </h4>
                             </div>
-                            <p class="client-say">
-                                خدمات پس از فروش عالی بود با تشکر از پاسخگویی
-                            </p>
-                            <h4 class="client-name">
-                                <a href="#">
-                                    بیل گیتس
-                                </a>
-                            </h4>
-                            <h5 class="designation">اپل</h5>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="client">
-                            <div class="client-image">
-                                <img src="assets/images/testimonialimage/2.jpg" class="img-fluid" alt="">
-                            </div>
-                            <p class="client-say">
-                                خدمات پس از فروش عالی بود با تشکر از پاسخگویی
-                            </p>
-                            <h4 class="client-name">
-                                <a href="#">
-                                    پریسا تبریز
-                                </a>
-                            </h4>
-                            <h5 class="designation">فیسبوک</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonial Area End -->
-
-<!-- عضویت Area Start -->
-<div class="subscribe-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title extra">
-                    <h2 class="title">عضویت در خبرنامه ما</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="newsletter-form-area" data-aos="fade-up">
-                    <form action="#">
-                        <input type="email" placeholder="ایمیل خود را وارد کنید">
-                        <button type="submit">
-                            <span>عضویت</span> <i class="far fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-<!-- عضویت Area End -->
-
-<!-- Partner Area Start -->
-<section id="faq" class="faq">
-    <div class="container">
-        <div class="section-title extra">
-            <h2 class="title">سوالات متداول</h2>
-            <p>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-            </p>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="panel-group accordion" id="accordion-1" data-aos="fade-right">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h4 data-toggle="collapse" aria-expanded="true" data-target="#one" aria-controls="one"
-                                class="panel-title">
-                                لورم ایپسوم چیست؟
-                            </h4>
-                        </div>
-                        <div id="one" class="panel-collapse collapse show" aria-labelledby="one"
-                             data-parent="#accordion-1">
-                            <div class="panel-body">
-                                <p class="textalign">
-                                    کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان را مي
-                                    طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان خلاقي
-                                    و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
-                                </p>
+                            <div id="one" class="panel-collapse collapse show" aria-labelledby="one"
+                                 data-parent="#accordion-1">
+                                <div class="panel-body">
+                                    <p class="textalign">
+                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
+                                        را مي
+                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
+                                        خلاقي
+                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h4 data-toggle="collapse" aria-expanded="false" data-target="#two" aria-controls="two"
-                                class="panel-title">
-                                لورم ایپسوم چیست؟
-                            </h4>
-                        </div>
-                        <div id="two" class="panel-collapse collapse" aria-labelledby="two" data-parent="#accordion-1">
-                            <div class="panel-body">
-                                <p class="textalign">
-                                    کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان را مي
-                                    طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان خلاقي
-                                    و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
-                                </p>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 data-toggle="collapse" aria-expanded="false" data-target="#two" aria-controls="two"
+                                    class="panel-title">
+                                    لورم ایپسوم چیست؟
+                                </h4>
+                            </div>
+                            <div id="two" class="panel-collapse collapse" aria-labelledby="two"
+                                 data-parent="#accordion-1">
+                                <div class="panel-body">
+                                    <p class="textalign">
+                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
+                                        را مي
+                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
+                                        خلاقي
+                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h4 data-toggle="collapse" aria-expanded="false" data-target="#three" aria-controls="three"
-                                class="panel-title">
-                                لورم ایپسوم چیست؟
-                            </h4>
-                        </div>
-                        <div id="three" class="panel-collapse collapse" aria-labelledby="three"
-                             data-parent="#accordion-1">
-                            <div class="panel-body">
-                                <p class="textalign">
-                                    کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان را مي
-                                    طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان خلاقي
-                                    و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
-                                </p>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 data-toggle="collapse" aria-expanded="false" data-target="#three"
+                                    aria-controls="three"
+                                    class="panel-title">
+                                    لورم ایپسوم چیست؟
+                                </h4>
+                            </div>
+                            <div id="three" class="panel-collapse collapse" aria-labelledby="three"
+                                 data-parent="#accordion-1">
+                                <div class="panel-body">
+                                    <p class="textalign">
+                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
+                                        را مي
+                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
+                                        خلاقي
+                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h4 data-toggle="collapse" aria-expanded="false" data-target="#four" aria-controls="four"
-                                class="panel-title">
-                                لورم ایپسوم چیست؟
-                            </h4>
-                        </div>
-                        <div id="four" class="panel-collapse collapse" aria-labelledby="four"
-                             data-parent="#accordion-1">
-                            <div class="panel-body">
-                                <p class="textalign">
-                                    کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان را مي
-                                    طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان خلاقي
-                                    و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
-                                </p>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 data-toggle="collapse" aria-expanded="false" data-target="#four"
+                                    aria-controls="four"
+                                    class="panel-title">
+                                    لورم ایپسوم چیست؟
+                                </h4>
+                            </div>
+                            <div id="four" class="panel-collapse collapse" aria-labelledby="four"
+                                 data-parent="#accordion-1">
+                                <div class="panel-body">
+                                    <p class="textalign">
+                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
+                                        را مي
+                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
+                                        خلاقي
+                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h4 data-toggle="collapse" aria-expanded="false" data-target="#four2" aria-controls="four2"
-                                class="panel-title">
-                                لورم ایپسوم چیست؟
-                            </h4>
-                        </div>
-                        <div id="four2" class="panel-collapse collapse" aria-labelledby="four2"
-                             data-parent="#accordion-1">
-                            <div class="panel-body">
-                                <p class="textalign">
-                                    کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان را مي
-                                    طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان خلاقي
-                                    و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
-                                </p>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 data-toggle="collapse" aria-expanded="false" data-target="#four2"
+                                    aria-controls="four2"
+                                    class="panel-title">
+                                    لورم ایپسوم چیست؟
+                                </h4>
+                            </div>
+                            <div id="four2" class="panel-collapse collapse" aria-labelledby="four2"
+                                 data-parent="#accordion-1">
+                                <div class="panel-body">
+                                    <p class="textalign">
+                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
+                                        را مي
+                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
+                                        خلاقي
+                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 d-flex">
-                <div class="faq-img" data-aos="fade-left">
-                    <img src="{% static 'img/allcard.png' %}" alt="دی جی کارت">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Partner Area End -->
-
-<!-- Contact Area Start -->
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
-                <div class="section-title">
-                    <h2 class="title">ارتباط با ما</h2>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="info-box box1" data-aos="fade-right">
-                    <div class="left">
-                        <div class="icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="content">
-                            <p>09914914853</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="info-box box2" data-aos="fade-up">
-                    <div class="left">
-                        <div class="icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="content">
-                            <p>info@dgtag.ir</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="info-box box3" data-aos="fade-left">
-                    <div class="left">
-                        <div class="icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="content">
-                            <p>ایران, مازندران , بابل</p>
-                        </div>
+                <div class="col-lg-6 d-flex">
+                    <div class="faq-img" data-aos="fade-left">
+                        <img src="{% static 'img/allcard.png' %}" alt="دی جی کارت">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="contact-form-wrapper" data-aos="fade-right">
-                    <form id="contact-form" method="POST">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" class="input-field borderd" id="name"
-                                       placeholder="نام خود را وارد کنید" required>
+    </section>
+    <!-- Partner Area End -->
+
+    <!-- Contact Area Start -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="section-title">
+                        <h2 class="title">ارتباط با ما</h2>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="info-box box1" data-aos="fade-right">
+                        <div class="left">
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
                             </div>
-                            <div class="col-md-12">
-                                <input type="email" class="input-field borderd" id="email"
-                                       placeholder="ایمیل خود را وارد کنید" required>
+                        </div>
+                        <div class="right">
+                            <div class="content">
+                                <p>09914914853</p>
+
                             </div>
-                            <div class="col-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="info-box box2" data-aos="fade-up">
+                        <div class="left">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="content">
+                                <p>info@dgtag.ir</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="info-box box3" data-aos="fade-left">
+                        <div class="left">
+                            <div class="icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="content">
+                                <p>ایران, مازندران , بابل</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-form-wrapper" data-aos="fade-right">
+                        <form id="contact-form" method="POST">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" class="input-field borderd" id="name"
+                                           placeholder="نام خود را وارد کنید" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="email" class="input-field borderd" id="email"
+                                           placeholder="ایمیل خود را وارد کنید" required>
+                                </div>
+                                <div class="col-12">
                   <textarea class="input-field borderd textarea" rows="3" id="message"
                             placeholder="دیدگاه خود را با ما در میان بگذارید" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="mybtn3 mybtn-bg"><span>ارسال دیدگاه</span></button>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <button type="submit" class="mybtn3 mybtn-bg"><span>ارسال دیدگاه</span></button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="google_map_wrapper" data-aos="fade-left">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.3362149737545!2d90.3866213154314!3d23.73538709526567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8c6d25f0a91%3A0xf8da21d64c3856dc!2sNew%20Work%20Aquarium%20Center!5e0!3m2!1sen!2sus!4v1593765590933!5m2!1sen!2sus"
-                            frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                            tabindex="0"></iframe>
+                <div class="col-lg-6">
+                    <div class="google_map_wrapper" data-aos="fade-left">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.3362149737545!2d90.3866213154314!3d23.73538709526567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8c6d25f0a91%3A0xf8da21d64c3856dc!2sNew%20Work%20Aquarium%20Center!5e0!3m2!1sen!2sus!4v1593765590933!5m2!1sen!2sus"
+                                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                                tabindex="0"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Contact Area End -->
+    </section>
+    <!-- Contact Area End -->
 
-
-<!-- Footer Section Start -->
-<footer class="footer" id="footer">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="footer-info-area">
-                    <div class="footer-logo">
-                        <a href="#" class="logo-link">
-                            <img src="{% static 'img/logodgtag.png' %}" alt="لوگو دی جی تگ">
-                        </a>
-                    </div>
-                    <div class="text">
-                        <p>هر گونه کپی برداری و انتشار غیرقانونی از سایت پیگرد قانونی دارد.
-                        </p>
-                    </div>
-                </div>
-                <div class="fotter-social-links">
-                    <ul>
-                        <li>
-                            <a href="#" class="facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="linkedin">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="google-plus">
-                                <i class="fab fa-google-plus-g"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="dribbble">
-                                <i class="fab fa-dribbble"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copy-bg text-center">
-        <p>
-            © 2020 <a href="http://www.dgtag.ir">پیرولی</a> تمام حقوق مادی و
-            معنوی سایت محفوظ می باشد.
-        </p>
-    </div>
-</footer>
-<!-- Footer Section End -->
-
-<!-- Back to Top Start -->
-<div class="bottomtotop">
-    <i class="fa fa-chevron-left"></i>
-</div>
-<!-- Back to Top End -->
-
-
-<!-- jquery -->
-<script src="{% static 'js/jquery.js' %}"></script>
-<!-- popper -->
-<script src="{% static 'js/popper.min.js' %}"></script>
-<!-- bootstrap -->
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<!-- way poin js-->
-<script src="{% static 'js/waypoints.min.js' %}"></script>
-<!-- owl carousel -->
-<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-<!-- magnific popup -->
-<script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
-<!-- aos js-->
-<script src="{% static 'js/aos.js' %}"></script>
-<!-- counterup js-->
-<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
-<!-- easing js-->
-<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
-<!-- Map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7eALQrRUekFNQX71IBNkxUXcz-ALS-MY&amp;sensor=false"></script>
-<script src="{% static 'js/gmap.js' %}"></script>
-<!-- main -->
-<script src="{% static 'js/contact.js' %}"></script>
-<!-- main -->
-<script src="{% static 'js/main.js' %}"></script>
-</body>
-
-
-</html>
+{% endblock %}

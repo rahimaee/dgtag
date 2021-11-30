@@ -1,0 +1,21 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{% block title %}دی جی تگ{% endblock %}</title>
+    {% include 'shared/home/_HeaderReferences.html' %}
+</head>
+<body class="home7">
+
+{% include 'shared/home/_Navbar.html' %}
+
+{% block body_contect %}
+
+{% endblock %}
+
+{% include 'shared/home/Footer.html' %}
+
+{% include 'shared/home/_FooterReferences.html' %}
+
+</body>
+</html>
