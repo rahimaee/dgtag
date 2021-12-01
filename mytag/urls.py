@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 from .views import home_page
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
     path('', home_page, name='starting_page'),
     path('', include('mytag_cards.urls', namespace='mytag_cards')),

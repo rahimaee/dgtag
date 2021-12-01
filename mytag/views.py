@@ -1,9 +1,4 @@
-from django.shortcuts import render, redirect, Http404
-from django.core.mail import send_mail
-
-
-# home page
-from mytag import settings
+from django.shortcuts import render
 
 
 def home_page(request):

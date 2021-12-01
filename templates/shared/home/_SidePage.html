@@ -5,7 +5,8 @@
     <title>{% block title %}دی جی تگ{% endblock %}</title>
     {% include 'shared/home/_HeaderReferences.html' %}
 </head>
-<body class="home7">
+
+<body {% block calss_body %}{% endblock %}>
 
 {% include 'shared/home/_Navbar.html' %}
 

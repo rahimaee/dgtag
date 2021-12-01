@@ -1,12 +1,29 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="fa">
 <head>
     <title>{% block title %}دی جی تگ{% endblock %}</title>
     {% include 'shared/home/_HeaderReferences.html' %}
 </head>
-<body class="home7">
 
+<body {% block class_body %}{% endblock %}>
+
+<!-- preloader area start -->
+<!-- <div class="preloader" id="preloader">
+  <div class="preloader-inner">
+    <div class="cube-wrapper">
+      <div class="cube-folding">
+        <span class="leaf1"></span>
+        <span class="leaf2"></span>
+        <span class="leaf3"></span>
+        <span class="leaf4"></span>
+      </div>
+      <span class="loading" data-name="Loading">در حال بارگذاری
+      </span>
+    </div>
+  </div>
+</div> -->
+<!-- preloader area end -->
 {% include 'shared/home/_Navbar.html' %}
 
 {% block body_contect %}
