@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'userpanel_mytag',
     # 'userpanel_profile',
     'mytag_account',
+    'home_newsletters'
 
 ]
 
