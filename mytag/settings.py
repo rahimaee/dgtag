@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'dynamic_formsets',
+    'django_render_partial',
     # my app cards install
     'mytag_cards',
     'mytag_type',
@@ -47,9 +48,11 @@ INSTALLED_APPS = [
     # user panel add install
     'userpanel',
     'userpanel_mytag',
-    # 'userpanel_profile',
+    'userpanel_profile',
     'mytag_account',
-    'home_newsletters'
+    # home
+    'home_newsletters',
+    'home_comments',
 
 ]
 
@@ -77,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -86,13 +90,27 @@ WSGI_APPLICATION = 'mytag.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG is True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'dgtagir_db',
+            'USER': 'dgtagir_db',
+            'PASSWORD': 'Xqu$&*~-qz2k',
+            'HOST': 'localhost',
+            'PORT': '3306',
+            'OPTIONS': {
+                'sql_mode': 'STRICT_ALL_TABLES'
+            }
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
