@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
-from home_newsletters.models import Newsletters
+from .models import Newsletters
+from .forms import NewslettersForm
 
 
 # Create your views here.
 
-def save_email(request, *args, **kwargs):
+
+def news_letters_partial_view(request, *args, **kwargs):
+    news_lettersForm = NewslettersForm(request.POST or None)
     if request.POST:
-        email = kwargs.get('Email')
-        News_letters = Newsletters()
-        News_letters.Email = email
-        News_letters.save()
-    return redirect('/')
+        if 'news' in request.POST:
+            print('news_letters_partial_view')
+
+    context = {
+        'news_lettersForm': news_lettersForm
+    }
+    return render(request, 'home_newsletters/Newsletters_partial_view.html', context)
