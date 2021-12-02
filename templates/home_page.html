@@ -1,4 +1,5 @@
 {% extends 'shared/home/_MainLayout.html' %}
+{% load render_partial %}
 {% load static %}
 {% block class_body %}
     class="home7"
@@ -1001,12 +1002,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">
                     <div class="newsletter-form-area" data-aos="fade-up">
-                        <form action="#">
-                            <input type="email" placeholder="ایمیل خود را وارد کنید">
-                            <button type="submit">
-                                <span>عضویت</span> <i class="far fa-paper-plane"></i>
-                            </button>
-                        </form>
+                        {% render_partial 'newsletters' %}
                     </div>
                 </div>
             </div>
@@ -1204,25 +1200,26 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-form-wrapper" data-aos="fade-right">
-                        <form id="contact-form" method="POST">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="text" class="input-field borderd" id="name"
-                                           placeholder="نام خود را وارد کنید" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="email" class="input-field borderd" id="email"
-                                           placeholder="ایمیل خود را وارد کنید" required>
-                                </div>
-                                <div class="col-12">
-                  <textarea class="input-field borderd textarea" rows="3" id="message"
-                            placeholder="دیدگاه خود را با ما در میان بگذارید" required></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="mybtn3 mybtn-bg"><span>ارسال دیدگاه</span></button>
-                                </div>
-                            </div>
-                        </form>
+                        {#                        <form name="comment_form"  method="POST">#}
+                        {#                            {% csrf_token %}#}
+                        {#                            <div class="row">#}
+                        {#                                <div class="col-md-12">#}
+                        {#                                    {{ comment_form.FullName }}#}
+                        {#                                </div>#}
+                        {#                                <div class="col-md-12">#}
+                        {#                                    {{ comment_form.Email }}#}
+                        {#                                </div>#}
+                        {#                                <div class="col-md-12">#}
+                        {#                                    {{ comment_form.Comment }}#}
+                        {#                                </div>#}
+                        {#                                <div class="col-md-12">#}
+                        {##}
+                        {#                                    <button type="submit" name="comment_form" class="mybtn3 mybtn-bg"><span>ارسال دیدگاه</span></button>#}
+                        {#                                </div>#}
+                        {##}
+                        {#                            </div>#}
+                        {% render_partial 'comment' %}
+
                     </div>
                 </div>
                 <div class="col-lg-6">
