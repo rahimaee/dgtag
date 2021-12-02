@@ -1,0 +1,19 @@
+<form name="comment_form" id="comment_form" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-12">
+            {{ comment_form.FullName }}
+        </div>
+        <div class="col-md-12">
+            {{ comment_form.Email }}
+        </div>
+        <div class="col-md-12">
+            {{ comment_form.Comment }}
+        </div>
+        <div class="col-md-12">
+
+            <button type="submit" form="comment_form" name="comment_form" class="mybtn3 mybtn-bg"><span>ارسال دیدگاه</span></button>
+        </div>
+
+    </div>
+</form>
