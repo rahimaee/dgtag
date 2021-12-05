@@ -1,0 +1,35 @@
+{% extends 'shared/userpanel/_MainLayout.html' %}
+
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">ویرایش پروفایل</h3>
+                    </div>
+                    <div class="box-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ User_Form.profile.label }}
+                            {{ User_Form.profile }}
+                            <br>
+                            {{ User_Form.first_name.label }}
+                            {{ User_Form.first_name }}
+                            <br>
+                            {{ User_Form.last_name.label }}
+                            {{ User_Form.last_name }}
+                            <br>
+                            {{ User_Form.PhoneNumber.label }}
+                            {{ User_Form.PhoneNumber }}
+                            <br>
+                            <button type="submit" class="btn btn-primary">ذخیره</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -71,12 +71,20 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">ارتباط با ما</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account:login' %}">ورود</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'account:register' %}">عضویت</a>
-                            </li>
+                            {% if request.user.is_authenticated %}
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'userpanel:user-home-page' %}">حساب کاربری</a>
+                                </li>
+                            {% else %}
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'account:login' %}">ورود</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'account:register' %}">عضویت</a>
+                                </li>
+                            {% endif %}
+
                         </ul>
                     </div>
                 </nav>

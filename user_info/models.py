@@ -22,4 +22,4 @@ def upload_image_path(instance, filename):
 class UserInfo(models.Model):
     ProfileImg = models.ImageField(upload_to=upload_image_path, verbose_name='پروفایل')
     PhoneNumber = models.CharField(max_length=15, verbose_name='موبایل')
-    user = models.FileField(User, verbose_name='کاربر')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='کاربر')

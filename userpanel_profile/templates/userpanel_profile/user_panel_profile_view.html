@@ -1,0 +1,43 @@
+{% extends 'shared/userpanel/_MainLayout.html' %}
+
+{% block content %}
+    <div class="col-md-4">
+        <!-- Widget: user widget style 1 -->
+        <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua-active">
+                <h3 class="widget-user-username">
+                    {% if user.first_name %}
+                        {{ user.first_name }}
+                    {% else %}
+                        بدون نام
+                    {% endif %}
+                    {% if user.last_name %}
+                        {{ user.last_name }}
+                    {% else %}
+                        بدون نام خانودگی
+                    {% endif %}
+                </h3>
+            </div>
+
+            <div class="widget-user-image">
+                <img class="img-circle" src="{{ user.profile.url }}" alt="پروفایل کاربر">
+            </div>
+            <div class="box-footer">
+                {% if user.PhoneNumber %}
+                    موبایل:  {{ user.PhoneNumber }}
+                {% endif %}
+                <br>
+                <br>
+                {% if user.email %}
+                    ایمیل: {{ user.email }}
+                {% endif %}
+                <br>
+                <br>
+                <a href="{% url 'userpanel_profile:Profile' %}">ویرایش</a>
+                <!-- /.row -->
+            </div>
+        </div>
+        <!-- /.widget-user -->
+    </div>
+{% endblock %}

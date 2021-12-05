@@ -2,9 +2,10 @@ from django.http import Http404
 from django.shortcuts import render, redirect, reverse
 from mytag_cards.models import Card
 from mytag_cards_contactnumbers.models import ContactNumbers
-
-
+import json
 # Create your views here.
+from mytag_cards_map.models import Map
+
 
 def checkInt(value):
     try:
@@ -29,11 +30,13 @@ def my_tag_home(request, *args, **kwargs):
             if mytag.TypeOfCard_id == 1:
                 mytag.Views += 1
                 mytag.save()
+                user_map = Map.objects.filter(By_User=request.user).all()
                 contact_numbers = mytag.has_ContactNumbers.filter(IsActive=True).all()
                 socialnetworks = mytag.socialnetwork_set.filter(IsActive=True).all()
                 context['numbers'] = contact_numbers
                 context['socialnetworks'] = socialnetworks
                 context['mytag'] = mytag
+                context['user_map'] = user_map
                 return render(request, 'mytag_cards/business_tag_home.html', context)
             else:
                 raise Http404()
@@ -44,11 +47,14 @@ def my_tag_home(request, *args, **kwargs):
             if mytag.TypeOfCard_id == 1:
                 mytag.Views += 1
                 mytag.save()
+                user_map = Map.objects.filter(By_User=request.user).all()
                 contact_numbers = mytag.has_ContactNumbers.filter(IsActive=True).all()
                 socialnetworks = mytag.socialnetwork_set.filter(IsActive=True).all()
                 context['numbers'] = contact_numbers
                 context['socialnetworks'] = socialnetworks
                 context['mytag'] = mytag
+                context['user_map'] = user_map
+
                 return render(request, 'mytag_cards/business_tag_home.html', context)
     else:
         raise Http404()

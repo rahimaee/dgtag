@@ -199,7 +199,7 @@ class ContactNumbersForm(forms.ModelForm):
 
 ContactNumbersFormSet = inlineformset_factory(
     Card, ContactNumbers, form=ContactNumbersForm,
-    fields=['Name', 'Number', 'Type'], extra=1, can_delete=True
+    fields=['Name', 'Number', 'Type'], extra=3, can_delete=False
 )
 
 
@@ -211,7 +211,7 @@ class CardSocialNetworkForm(forms.ModelForm):
 
 CardSocialNetworkFormset = inlineformset_factory(
     Card, SocialNetwork, form=CardSocialNetworkForm,
-    fields=['Name', 'Url', 'Type'], extra=1, can_delete=True
+    fields=['Name', 'Url', 'Type'], extra=3, can_delete=False
 )
 
 
@@ -225,18 +225,19 @@ class CardForm(forms.ModelForm):
             'WorkName': forms.TextInput(attrs={'class': 'form-control'}),
             'Bio': forms.Textarea(attrs={'class': 'form-control'}),
             'UserName': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'نام کاربری'}),
-
         }
-        fields = ('FirstName', 'LastName', 'Company', 'WorkName', 'Bio', 'UserName')
+
+        fields = ('ProfileImg', 'FirstName', 'LastName', 'Company', 'WorkName', 'Bio', 'UserName')
         exclude = ['created_by', ]
 
     def __init__(self, *args, **kwargs):
         super(CardForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = True
-        self.helper.form_class = 'form-horizontal'
-        self.helper.label_class = 'col-md-3 create-label'
-        self.helper.field_class = 'col-md-9'
+        # self.helper.form_class = 'form-horizontal'
+        # self.helper.label_class = 'col-md-3 create-label'
+        # self.helper.field_class = 'col-md-9'
+        
         self.helper.layout = Layout(
             Div(
                 Field('ProfileImg'),
@@ -246,20 +247,11 @@ class CardForm(forms.ModelForm):
                 Field('WorkName'),
                 Field('Bio'),
                 Field('UserName'),
-                # Field('IsActive'),
-                # Field('Views'),
-                # Field('TypeOfCard'),
-                # Field('Pro'),
-                # Field('IsActiveUserName'),
-                # Field('verification'),
-                # Field('CardId'),
-                # Field('BuildTime'),
-                # Field('created_by'),
-                Fieldset('Add titles',
+                Fieldset('شبکه های اجتماعی',
                          Formset('cards')),
-                Fieldset('Add titles',
+                Fieldset('شماره ها',
                          Formset('titles')),
                 HTML("<br>"),
-                ButtonHolder(Submit('submit', 'Save')),
+                ButtonHolder(Submit('submit', 'ذخیره')),
             )
         )

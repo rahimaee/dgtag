@@ -38,6 +38,16 @@ class RegisterForm(forms.Form):
         label='نام کاربری'
 
     )
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'نام  خود را وارد کنید'}),
+        label='نام'
+
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'نام خانوادگی خود را وارد کنید'}),
+        label='نام خانوادگی'
+
+    )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'نام کاربری خود را وارد کنید'}),
         label='رمز عبور'

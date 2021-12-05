@@ -79,14 +79,14 @@ function find() {
     }
 }
 
- 
-    var map = L.map('map').setView([36.5773, 52.6757], 16);
-
-                    L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'mohammad rahimaee -09363793192'
-                    }).addTo(map);
-                    L.marker([36.5773, 52.6757], 16).addTo(map).bindPopup('mohammad reza rahimaee -09363793192')
-  
+    //
+    // var map = L.map('map').setView([36.5773, 52.6757], 16);
+    //
+    //                 L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     attribution: 'mohammad rahimaee -09363793192'
+    //                 }).addTo(map);
+    //                 L.marker([36.5773, 52.6757], 16).addTo(map).bindPopup('mohammad reza rahimaee -09363793192')
+    //
 
 function getget() {
     Swal.fire({

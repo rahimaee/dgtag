@@ -1,52 +1,65 @@
 {% extends 'userpanel_mytag/base.html' %}
 {% block content %}
-    <div class="card">
-        <div class="card-header">
-            <h1><b>Collection ID {{ object }}</b></h1>
-        </div>
-        <div class="card-body">
-            <table class="table">
-                <!--for inline added titles-->
-                {% if object.has_titles %}
-                    {% for title in object.has_ContactNumbers.all %}
-                        <tr>
-                            <th>Title @{{ title.Name }}</th>
-                            <td>{{ title.Number }}</td>
-                            <td>{{ title.Type }}</td>
-                        </tr>
-                    {% endfor %}
-                {% endif %}
-                <!--end-->
-                {% if object.FirstName %}
-                    <tr>
-                        <th>FirstName</th>
-                        <td>{{ object.FirstName }}</td>
-                    </tr>
-                {% endif %}
-                {% if object.LastName %}
-                    <tr>
-                        <th>LastName</th>
-                        <td>{{ object.LastName }}</td>
-                    </tr>
-                {% endif %}
-                {% if object.Company %}
-                    <tr>
-                        <th>Company</th>
-                        <td>{{ object.Company }}</td>
-                    </tr>
-                    <tr>
-                        <th>WorkName</th>
-                        <td>{{ object.WorkName }}</td>
-                    </tr>
-                    <tr>
-                        <th>WorkName</th>
-                        <td>{{ object.WorkName }}</td>
-                    </tr>
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">ویرایش تگ</h3>
+                    </div>
+                    <table class="table">
 
-                {% endif %}
-            </table>
-            <a class="btn btn-outline-info" href="{% url 'userpanel_mytag:update' pk=object.id %}">Update</a>
-            <a class="btn btn-outline-danger" href="{% url 'userpanel_mytag:delete' pk=object.id %}">Delete</a>
+                        {% if object.FirstName %}
+                            <tr>
+                                <th>نام</th>
+                                <td>{{ object.FirstName }}</td>
+                            </tr>
+                        {% endif %}
+                        {% if object.LastName %}
+                            <tr>
+                                <th>نام خانوادگی</th>
+                                <td>{{ object.LastName }}</td>
+                            </tr>
+                        {% endif %}
+                        {% if object.Company %}
+                            <tr>
+                                <th>شرکت</th>
+                                <td>{{ object.Company }}</td>
+                            </tr>
+                            <tr>
+                                <th>شغل</th>
+                                <td>{{ object.WorkName }}</td>
+                            </tr>
+
+                        {% endif %}
+                        {% if object.has_ContactNumbers %}
+                            {% for title in object.has_ContactNumbers.all %}
+                                <tr>
+                                    <th>{{ title.Name }}</th>
+                                    <td>{{ title.Number }}</td>
+                                    <td>{{ title.Type }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                        {% if object.socialnetwork_set %}
+                            {% for title in object.socialnetwork_set.all %}
+                                <tr>
+                                    <th>{{ title.Name }}</th>
+                                    <td>{{ title.Url }}</td>
+                                    <td>{{ title.Type }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </table>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-outline-info" href="{% url 'userpanel_mytag:update' pk=object.id %}">ویرایش</a>
+                    {#            <a class="btn btn-outline-danger" href="{% url 'userpanel_mytag:delete' pk=object.id %}">Delete</a>#}
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
 {% endblock content %}

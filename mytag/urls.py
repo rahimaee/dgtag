@@ -22,7 +22,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from home_comments.views import comment_partial_view
-from home_newsletters.views import  news_letters_partial_view
+from home_newsletters.views import news_letters_partial_view
 from .views import home_page
 from django.contrib.auth import views as auth_views
 
@@ -34,6 +34,9 @@ urlpatterns = [
     path('newsletters', news_letters_partial_view, name='newsletters'),
     path('userpanel', include('userpanel.urls', namespace='userpanel')),
     path('userpanel/', include('userpanel_mytag.urls', namespace='userpanel_mytag')),
+    path('userpanel/', include('userpanel_profile.urls', namespace='userpanel_profile')),
+    path('userpanel/', include('userpanel_changepassword.urls', namespace='userpanel_changepassword')),
+
     path('admin/', admin.site.urls),
 
 ]

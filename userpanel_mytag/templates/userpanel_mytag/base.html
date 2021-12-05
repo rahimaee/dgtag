@@ -3,20 +3,33 @@
 
 
 {% block content %}
-    <div class="card">
-        <div class="card-body">
-            {% if Cards %}
-                {% for object in Cards %}
-                    <li>
-                        <a href="{% url 'userpanel_mytag:detail' pk=object.pk %}">Collection
-                            ID {{ object }}</a>
-                    </li>
-                {% endfor %}
-            {% else %}
-                <p>No collections</p>
-            {% endif %}
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">ویرایش تگ</h3>
+                    </div>
+                    <div class="box-body">
+                        {% if Cards %}
+                            {% for object in Cards %}
+
+                                <li>
+                                    <a href="{% url 'userpanel_mytag:detail' pk=object.pk %}"> تگ :
+                                       {{ object }}</a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <p>تگی ثبت نشده</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
 {% endblock %}
 
 

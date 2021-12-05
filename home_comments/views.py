@@ -9,8 +9,11 @@ def comment_partial_view(request, *args, **kwargs):
     comment_form = CommentForm(request.POST or None)
     if request.method == 'POST':
         if 'comment_form' in request.POST:
-            print('comment_form')
-
+            comments = Comments()
+            comments.Comment = comment_form.data.get('Comment')
+            comments.Email = comment_form.data.get('Email')
+            comments.FullName = comment_form.data.get('FullName')
+            comments.save()
     context = {
         'comment_form': comment_form
     }

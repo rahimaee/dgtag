@@ -10,7 +10,9 @@ def news_letters_partial_view(request, *args, **kwargs):
     news_lettersForm = NewslettersForm(request.POST or None)
     if request.POST:
         if 'news' in request.POST:
-            print('news_letters_partial_view')
+            MyNewsletters = Newsletters()
+            MyNewsletters.Email = news_lettersForm.data.get('email')
+            MyNewsletters.save()
 
     context = {
         'news_lettersForm': news_lettersForm

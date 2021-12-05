@@ -31,8 +31,8 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user2-160x160.jpg" class="img-circle"
-                                                     alt="User Image">
+                                                <img src="{{ request.user.profile.url }}" class="img-circle"
+                                                     alt="پروفایل کاربر">
                                             </div>
                                             <h4>
                                                 علیرضا
@@ -225,48 +225,31 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">علیرضا حسینی زاده</span>
+                            <img src="{{ request.user.profile.url }}" class="user-image" alt="پروفایل کاربر">
+                            <span class="hidden-xs">{{ request.user.first_name }} {{ request.user.last_name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="{{ request.user.profile.url }}" class="img-circle" alt="پروفایل کاربر">
 
                                 <p>
-                                    علیرضا حسینی زاده
-                                    <small>مدیریت کل سایت</small>
+                                   {{ request.user.first_name }} {{ request.user.last_name }}
+                                    <small>کاربر</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">صفحه من</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">فروش</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">دوستان</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
+
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">پروفایل</a>
+                                    <a href="{% url 'userpanel_profile:Profile' %}" class="btn btn-default btn-flat">پروفایل</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">خروج</a>
+                                    <a href="{% url 'account:logout' %}" class="btn btn-default btn-flat">خروج</a>
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
