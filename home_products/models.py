@@ -81,6 +81,9 @@ class Product(models.Model):
     def get_image_url(self):
         return f"/media/{self.image}"
 
+    def DiscountPrice(self):
+        return self.price * self.Discount
+
 
 class Gallery(models.Model):
     image = models.ImageField(upload_to=upload_image_gallery_path, null=True, blank=True, verbose_name='تصویر')
