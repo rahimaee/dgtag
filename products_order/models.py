@@ -10,6 +10,7 @@ class Order(models.Model):
     is_paid = models.BooleanField(verbose_name='پرداخت شده /نشده')
     payment_date = models.DateTimeField(blank=True, null=True, verbose_name='تاریخ پرداخت')
     ref_id = models.IntegerField(blank=True, null=True)
+    clientrefid = models.IntegerField(blank=True, null=True)
     country = models.CharField(max_length=100, verbose_name='کشور')
     province = models.CharField(max_length=100, verbose_name='استان')
     city = models.CharField(max_length=100, verbose_name='شهر')

@@ -12,23 +12,23 @@ class UserNewOrderForm(forms.Form):
 
 
 class AddressForm(forms.Form):
-    country = forms.IntegerField(
+    country = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'کشور'}),
         label='کشور'
     )
-    province = forms.IntegerField(
+    province = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'استان'}),
         label='استان'
     )
-    city = forms.IntegerField(
+    city = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'شهر'}),
         label='شهر'
     )
-    FullAddress = forms.IntegerField(
+    FullAddress = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'کامل'}),
         label='ادرس کامل'
     )
-    ZipCode = forms.IntegerField(
+    ZipCode = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'کد پستی'}),
         label='کد پستی'
     )

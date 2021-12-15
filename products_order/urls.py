@@ -9,4 +9,8 @@ urlpatterns = [
     path('remove_order_detail/<detail_id>', remove_order_detail, name='remove-item_order'),
     path('order-item-update/<detail_id>/<count>', update_count, name='update-item_order'),
     path('order-address/', add_address_order, name='order-address'),
+    path('send_request/', send_request, name='send_request'),
+    path('send_request/', send_request, name='send_request'),
+    path('verify/', verify, name='verify'),
+
 ]

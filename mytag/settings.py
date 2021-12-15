@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'userpanel_profile',
     'userpanel_changepassword',
     'userpanel_map',
+    'userpanel_invoice',
     'mytag_account',
     # home
     'home_newsletters',
@@ -67,7 +68,7 @@ EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 LOGOUT_REDIRECT_URL = '/login'
 LOGIN_REDIRECT_URL = '/login'
-
+PayPing_Token = '7377ce046de335004643fc1940cb96675c1e5f8db50846288e33a8560e1546ea'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

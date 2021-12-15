@@ -39,6 +39,7 @@ urlpatterns = [
     path('userpanel/', include('userpanel_profile.urls', namespace='userpanel_profile')),
     path('userpanel/', include('userpanel_changepassword.urls', namespace='userpanel_changepassword')),
     path('userpanel/', include('userpanel_map.urls', namespace='userpanel_map')),
+    path('userpanel/', include('userpanel_invoice.urls', namespace='serpanel_invoice')),
     path('test', test, name='hamed'),
     path('shop', shop, name='shop'),
     path('admin/', admin.site.urls),

@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 
 # Create your views here.
 from django.urls import reverse
@@ -9,6 +10,13 @@ from home_products.models import Product
 from products_order.forms import UserNewOrderForm
 from products_order.models import Order, OrderDetail
 from .forms import AddressForm
+
+# bank
+from payping.authentication import Bearer
+from payping.payment import make_payment_code, verify_payment
+from payping.payment import get_url_payment
+
+from mytag.settings import PayPing_Token
 
 
 @login_required(login_url='/login')
@@ -119,8 +127,52 @@ def add_address_order(request, *args, **kwargs):
             order.country = country
             order.ZipCode = ZipCode
             order.save()
-        raise Http404()
+            return send_request(request)
+        else:
+            raise Http404()
 
     context = {'Address_Form': Address_Form}
 
     return render(request, 'products_order/add_address.html', context=context)
+
+
+def send_request(request):
+    userid = request.user.id
+    user = User.objects.filter(pk=userid).first()
+    if user is None:
+        raise Http404()
+    order = Order.objects.filter(owner_id=userid, is_paid=False).first()
+    if order is None:
+        raise Http404()
+    description = 'خرید از دی جی تگ'
+    header = Bearer(token=PayPing_Token)
+    code = make_payment_code(header=header, amount=2000, clientRefId=order.id,
+                             payerName=user.get_full_name(),
+                             description=description, returnUrl='http://127.0.0.1:8000/verify')
+    url = get_url_payment(code=code)
+    if url is None:
+        raise Http404()
+
+    return redirect(url)
+
+
+def verify(request):
+    ref_id = request.GET.get('refid')
+    clientrefid = request.GET.get('clientrefid')
+    userid = request.user.id
+    user = User.objects.filter(pk=userid).first()
+    if user is None:
+        raise Http404()
+    order = Order.objects.filter(owner_id=userid, is_paid=False).first()
+    if order is None:
+        raise Http404()
+    if clientrefid == '1':
+        raise Http404()
+    order.ref_id = ref_id
+    order.clientrefid = clientrefid
+    order.is_paid = True
+    order.save()
+    header = Bearer(token=PayPing_Token)
+    verify_payment(header=header, refid=ref_id, amount=order.get_total_price())
+
+    return HttpResponse('ok')
