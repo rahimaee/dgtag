@@ -46,22 +46,28 @@ INSTALLED_APPS = [
     'mytag_cards_contactnumbers',
     'mytag_cards_contactnumbers_type',
     'mytag_cards_map',
-    'user_info',
     # user panel add install
     'userpanel',
     'userpanel_mytag',
     'userpanel_profile',
     'userpanel_changepassword',
+    'userpanel_map',
     'mytag_account',
     # home
     'home_newsletters',
     'home_comments',
+    'home_products',
+    'home_products_category',
+    'home_products_tag',
+    'products_order',
+    
 
 ]
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 LOGOUT_REDIRECT_URL = '/login'
 LOGIN_REDIRECT_URL = '/login'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

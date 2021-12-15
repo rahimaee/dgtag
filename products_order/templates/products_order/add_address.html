@@ -1,0 +1,46 @@
+{% extends 'shared/home/_MainLayout.html' %}
+{% load static %}
+{% block productshead %}
+
+
+
+{% endblock %}
+{% block body_contect %}
+
+    <section class="breadcrumb-area">
+    </section>
+
+    <section class="auth">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-10">
+                    <div class="sign-form">
+                        <div class="heading">
+                            <h4 class="title">
+                                ادامه خرید
+                            </h4>
+                            <p class="subtitle">
+                                مشخصات پستی خود را کامل کنید
+                            </p>
+                        </div>
+                        <form class="form-group mb-0" method="post">
+                            {% csrf_token %}
+                            {{ Address_Form.as_p }}
+
+                            <button type="submit" class="bigbtn">پرداخت</button>
+
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}
+
+{% block productfoot %}
+
+{% endblock %}

@@ -538,182 +538,36 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product-slider" data-aos="fade-up">
-                        <div class="item">
-                            <div class="single-product">
-                                <div class="img">
-                                    <img src="{% static 'img/cardf.png' %}" alt="بیزینس کارت دی جی کارت">
+                        {% for foo in AllProduct %}
+                            <div class="item">
+                                <div class="single-product">
+                                    <div class="img">
+                                        <img src="{{ foo.image.url }}" alt="{{ foo.title }}">
 
-                                    <div class="links">
-                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
+                                        <div class="links">
+                                            <a href="{% url 'products_order:add-order' product_id=foo.pk %}"
+                                               class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="content">
-                                    <ul class="stars">
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star-half"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="price">
-                                        <p class="new-price">
-                                            135 تومان
-                                        </p>
-                                        <small>
-                                            <del>
-                                                400 تومان
-                                            </del>
-                                        </small>
-                                    </div>
+                                    <div class="content">
+                                        <div class="price">
+                                            <p class="new-price">
+                                                {{ foo.price }}
+                                            </p>
+                                            <small>
+                                                <del>
+                                                    400 تومان
+                                                </del>
+                                            </small>
+                                        </div>
 
-                                    <h4 class="title">
-                                        پرولب آبی
-                                    </h4>
+                                        <h4 class="title">
+                                            {{ foo.title }}
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-product">
-                                <div class="img">
-                                    <img src="assets/images/w2.png" alt="">
-
-                                    <div class="links">
-                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <ul class="stars">
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star-half"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="price">
-                                        <p class="new-price">
-                                            135 تومان
-                                        </p>
-                                        <small>
-                                            <del>
-                                                193 تومان
-                                            </del>
-                                        </small>
-                                    </div>
-
-                                    <h4 class="title">
-                                        پرولب آبی
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-product">
-                                <div class="img">
-                                    <img src="assets/images/w3.png" alt="">
-
-                                    <div class="links">
-                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <ul class="stars">
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star-half"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="price">
-                                        <p class="new-price">
-                                            135 تومان
-                                        </p>
-                                        <small>
-                                            <del>
-                                                193 تومان
-                                            </del>
-                                        </small>
-                                    </div>
-
-                                    <h4 class="title">
-                                        پرولب آبی
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-product">
-                                <div class="img">
-                                    <img src="assets/images/w4.png" alt="">
-
-                                    <div class="links">
-                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span> </a>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <ul class="stars">
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star-half"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="price">
-                                        <p class="new-price">
-                                            135 تومان
-                                        </p>
-                                        <small>
-                                            <del>
-                                                193 تومان
-                                            </del>
-                                        </small>
-                                    </div>
-
-                                    <h4 class="title">
-                                        پرولب آبی
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -1030,18 +884,17 @@
                             <div class="panel-heading">
                                 <h4 data-toggle="collapse" aria-expanded="true" data-target="#one" aria-controls="one"
                                     class="panel-title">
-                                    لورم ایپسوم چیست؟
+                                    چرااز بیزینس کارت دی جی تگ استفاده می کنیم؟
                                 </h4>
                             </div>
                             <div id="one" class="panel-collapse collapse show" aria-labelledby="one"
                                  data-parent="#accordion-1">
                                 <div class="panel-body">
                                     <p class="textalign">
-                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
-                                        را مي
-                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
-                                        خلاقي
-                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                        بیزینس کارت به شما این امکان را می دهد که به جای استفاده از چندین کارت ویزیت،
+                                        تمامی
+                                        اطلاعات خود را بر روی یک کارت الکترونیکی ذخیره کرده و بر روی تلفن همراه تمامی
+                                        کسانی که مخاطب شما هستند انتقال دهید.
                                     </p>
                                 </div>
                             </div>
@@ -1050,18 +903,16 @@
                             <div class="panel-heading">
                                 <h4 data-toggle="collapse" aria-expanded="false" data-target="#two" aria-controls="two"
                                     class="panel-title">
-                                    لورم ایپسوم چیست؟
+                                    چه اطلاعاتی را می توانیم بر روی بیزینس کارت خود داشته باشیم؟
                                 </h4>
                             </div>
                             <div id="two" class="panel-collapse collapse" aria-labelledby="two"
                                  data-parent="#accordion-1">
                                 <div class="panel-body">
                                     <p class="textalign">
-                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
-                                        را مي
-                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
-                                        خلاقي
-                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                        هر گونه اطلاعاتی که برای معرفی شما کاربردی است اعم از شماره های تماس، آدرس و
+                                        نشانی محل، ایمیل، وبسایت، تمامی شبکه های اجتماعی، مشخصات فردی و رزومه کاری را می
+                                        توانید بر روی وی کارت شخصی خود ذخیره کرده و به اشتراک بگذارید.
                                     </p>
                                 </div>
                             </div>
@@ -1071,18 +922,17 @@
                                 <h4 data-toggle="collapse" aria-expanded="false" data-target="#three"
                                     aria-controls="three"
                                     class="panel-title">
-                                    لورم ایپسوم چیست؟
+                                    اطلاعاتمان به چه صورت در تلفن های همراه ذخیره می شود؟
                                 </h4>
                             </div>
                             <div id="three" class="panel-collapse collapse" aria-labelledby="three"
                                  data-parent="#accordion-1">
                                 <div class="panel-body">
                                     <p class="textalign">
-                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
-                                        را مي
-                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
-                                        خلاقي
-                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                        زمانی که شما بیزینس کارت خود را با کیو آر کد یا ان اف سی به تلفن همراه مخاطبتان
+                                        متصل
+                                        کنید، تمامی اطلاعات در دفترچه تلفن گوشی ساخته می شود و شما تنها با ذخیره کردن یا
+                                        Add To Contact آن ها را ذخیره می کنید.
                                     </p>
                                 </div>
                             </div>
@@ -1092,18 +942,15 @@
                                 <h4 data-toggle="collapse" aria-expanded="false" data-target="#four"
                                     aria-controls="four"
                                     class="panel-title">
-                                    لورم ایپسوم چیست؟
+                                    چگونه می توانیم پس از ثبت مشخصات و اطلاعاتمان، آن را تغییر دهیم؟
                                 </h4>
                             </div>
                             <div id="four" class="panel-collapse collapse" aria-labelledby="four"
                                  data-parent="#accordion-1">
                                 <div class="panel-body">
                                     <p class="textalign">
-                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
-                                        را مي
-                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
-                                        خلاقي
-                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                        با ورود به حساب کاربری در سایت دی جی تگ، می توانید تمامی اطلاعات خود را به سادگی
+                                        به روز کنید
                                     </p>
                                 </div>
                             </div>
@@ -1113,18 +960,16 @@
                                 <h4 data-toggle="collapse" aria-expanded="false" data-target="#four2"
                                     aria-controls="four2"
                                     class="panel-title">
-                                    لورم ایپسوم چیست؟
+                                    چگونه از امنیت اطلاعات خود در دی جی تگ مطمئن شویم؟
                                 </h4>
                             </div>
                             <div id="four2" class="panel-collapse collapse" aria-labelledby="four2"
                                  data-parent="#accordion-1">
                                 <div class="panel-body">
                                     <p class="textalign">
-                                        کتابهاي زيادي در شصت و سه درصد گذشته، حال و آينده شناخت فراوان جامعه و متخصصان
-                                        را مي
-                                        طلبد تا با نرم افزارها شناخت بيشتري را براي طراحان رايانه اي علي الخصوص طراحان
-                                        خلاقي
-                                        و فرهنگ پيشرو در زبان فارسي ايجاد کرد.
+                                        تمامی اطلاعات شما تنها در پروفایل شخصیتان محفوظ است و تنها درصورت انتقال اطلاعات
+                                        به تلفن های همراه مخاطبین، انتقال می یابد. همچنین اطلاعاتتان در موتورهای جستجوگر
+                                        مثل گوگل نیز یافت نخواهد شد و قابل دسترسی نیست.
                                     </p>
                                 </div>
                             </div>
@@ -1203,26 +1048,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-form-wrapper" data-aos="fade-right">
-                        {#                        <form name="comment_form"  method="POST">#}
-                        {#                            {% csrf_token %}#}
-                        {#                            <div class="row">#}
-                        {#                                <div class="col-md-12">#}
-                        {#                                    {{ comment_form.FullName }}#}
-                        {#                                </div>#}
-                        {#                                <div class="col-md-12">#}
-                        {#                                    {{ comment_form.Email }}#}
-                        {#                                </div>#}
-                        {#                                <div class="col-md-12">#}
-                        {#                                    {{ comment_form.Comment }}#}
-                        {#                                </div>#}
-                        {#                                <div class="col-md-12">#}
-                        {##}
-                        {#                                    <button type="submit" name="comment_form" class="mybtn3 mybtn-bg"><span>ارسال دیدگاه</span></button>#}
-                        {#                                </div>#}
-                        {##}
-                        {#                            </div>#}
                         {% render_partial 'comment' %}
-
                     </div>
                 </div>
                 <div class="col-lg-6">

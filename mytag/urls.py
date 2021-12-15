@@ -23,20 +23,24 @@ from django.conf.urls.static import static
 
 from home_comments.views import comment_partial_view
 from home_newsletters.views import news_letters_partial_view
-from .views import home_page
+from .views import home_page, test, shop
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', home_page, name='starting_page'),
     path('', include('mytag_cards.urls', namespace='mytag_cards')),
     path('', include('mytag_account.urls', namespace='account')),
+    path('', include('products_order.urls', namespace='products_order')),
+    path('product', include('home_products.urls', namespace='home_product')),
     path('comment', comment_partial_view, name='comment'),
     path('newsletters', news_letters_partial_view, name='newsletters'),
     path('userpanel', include('userpanel.urls', namespace='userpanel')),
     path('userpanel/', include('userpanel_mytag.urls', namespace='userpanel_mytag')),
     path('userpanel/', include('userpanel_profile.urls', namespace='userpanel_profile')),
     path('userpanel/', include('userpanel_changepassword.urls', namespace='userpanel_changepassword')),
-
+    path('userpanel/', include('userpanel_map.urls', namespace='userpanel_map')),
+    path('test', test, name='hamed'),
+    path('shop', shop, name='shop'),
     path('admin/', admin.site.urls),
 
 ]

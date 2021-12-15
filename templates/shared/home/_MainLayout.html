@@ -2,8 +2,10 @@
 <!doctype html>
 <html lang="fa">
 <head>
+
     <title>{% block title %}دی جی تگ{% endblock %}</title>
     {% include 'shared/home/_HeaderReferences.html' %}
+    {% block productshead %}{% endblock %}
 </head>
 
 <body {% block class_body %}{% endblock %}>
@@ -33,6 +35,6 @@
 {% include 'shared/home/Footer.html' %}
 
 {% include 'shared/home/_FooterReferences.html' %}
-
+{% block productfoot %}{% endblock %}
 </body>
 </html>

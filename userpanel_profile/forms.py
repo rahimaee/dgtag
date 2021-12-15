@@ -1,11 +1,4 @@
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Field, Fieldset, HTML, ButtonHolder, Submit
 from django import forms
-from django.contrib.auth.models import User
-from django.forms import inlineformset_factory
-
-from user_info.models import UserInfo
-from userpanel_mytag.custom_layout_object import Formset
 
 
 class UserForm(forms.Form):

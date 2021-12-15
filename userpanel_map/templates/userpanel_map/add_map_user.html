@@ -1,0 +1,48 @@
+{% extends 'shared/userpanel/_MainLayout.html' %}
+
+
+
+
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">اضافه کردن نقشه</h3>
+                    </div>
+                    <div class="box-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ Map_Form.Name.label }}
+                            {{ Map_Form.Name }}
+                            {{ Map_Form.Country.label }}
+                            {{ Map_Form.Country }}
+                            {{ Map_Form.Province.label }}
+                            {{ Map_Form.Province }}
+                            {{ Map_Form.City.label }}
+                            {{ Map_Form.City }}
+                            {{ Map_Form.Address.label }}
+                            {{ Map_Form.Address }}
+                            {{ Map_Form.Lat }}
+                            {{ Map_Form.Lng }}
+                            {{ Map_Form.MapImg.label }}
+                            {{ Map_Form.MapImg }}
+                            {{ Map_Form.MapText.label }}
+                            {{ Map_Form.MapText }}
+                            {{ Map_Form.DgTag.label }}
+                            {{ Map_Form.DgTag }}
+                            <button type="submit">اضافه کردن</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+

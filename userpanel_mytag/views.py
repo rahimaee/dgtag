@@ -1,16 +1,19 @@
 import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.db import transaction, IntegrityError
 # Create your views here.
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView
 
 from mytag_cards.models import Card
 from userpanel_mytag.forms import CardForm, ContactNumbersFormSet, CardSocialNetworkFormset
 
 
+@method_decorator(login_required(login_url='/login'), name='dispatch')
 class HomepageView(TemplateView):
     template_name = "userpanel_mytag/base.html"
 
@@ -20,6 +23,7 @@ class HomepageView(TemplateView):
         return context
 
 
+@method_decorator(login_required(login_url='/login'), name='dispatch')
 class MyTagDetailView(DetailView):
     model = Card
     template_name = 'userpanel_mytag/user_panel_mytag_detail.html'
@@ -35,11 +39,13 @@ class MyTagDetailView(DetailView):
         raise Http404()
 
 
+@method_decorator(login_required(login_url='/login'), name='dispatch')
 class MyTagCreate(CreateView):
     model = Card
     template_name = 'userpanel_mytag/user_panel_mytag_create.html'
     form_class = CardForm
     success_url = None
+
 
     def get_context_data(self, **kwargs):
         data = super(MyTagCreate, self).get_context_data(**kwargs)
@@ -73,6 +79,7 @@ class MyTagCreate(CreateView):
         return reverse_lazy('userpanel_mytag:detail', kwargs={'pk': self.object.pk})
 
 
+@method_decorator(login_required(login_url='/login'), name='dispatch')
 class MyTagUpdate(UpdateView):
     model = Card
     form_class = CardForm
@@ -114,6 +121,7 @@ class MyTagUpdate(UpdateView):
         return reverse_lazy('userpanel_mytag:homepage')
 
 
+@method_decorator(login_required(login_url='/login'), name='dispatch')
 class MyTagDelete(DeleteView):
     model = Card
     template_name = 'userpanel_mytag/user_panel_confirm_delete.html'

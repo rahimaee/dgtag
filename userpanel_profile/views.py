@@ -1,15 +1,15 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from userpanel_profile.forms import UserForm, UserViewForm
+from userpanel_profile.forms import UserForm
 
 
+@login_required(login_url='/login')
 def Profile(request):
-    context = {
-
-    }
+    context = {}
     if request.method == "GET":
         User_Form = UserForm(request.POST or None, initial={
             'first_name': request.user.first_name,
@@ -43,6 +43,7 @@ def Profile(request):
     return render(request, 'userpanel_profile/user_panel_profile_update.html', context)
 
 
+@login_required(login_url='/login')
 def profile_view(request):
     user = User.objects.filter(pk=request.user.pk).first()
     context = {
