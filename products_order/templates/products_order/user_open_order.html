@@ -270,14 +270,19 @@
                             <div class="product-title">{{ foo.product.title }}</div>
                         </div>
                         <div class="id-detail" style="visibility: hidden">{{ foo.pk }}</div>
-                        <div class="product-price">{{ foo.product.price }}</div>
+                        <div class="product-price">
+                            {% if foo.product.DiscountActive %}
+                                {{ foo.product.Discount }}
+                            {% else %}
+                                {{ foo.product.price }}
+                            {% endif %}
+                        </div>
                         <div class="product-quantity">
                             <input type="number" value="{{ foo.count }}" min="1">
                         </div>
                         <div class="product-removal">
                             <button class="remove-product">
                                 حذف
-
                             </button>
                         </div>
                         <div class="product-line-price">{{ foo.get_detail_some }}</div>
@@ -287,7 +292,7 @@
                 <div class="totals">
                     <div class="totals-item">
                         <label>Subtotal</label>
-                        <div class="totals-value" id="cart-subtotal">71.97</div>
+                        <div class="totals-value" id="cart-subtotal">{{ total }}</div>
                     </div>
                     <div class="totals-item">
                         <label>Tax (5%)</label>
@@ -338,6 +343,7 @@
             /* Sum up row totals */
             $('.product').each(function () {
                 subtotal += parseFloat($(this).children('.product-line-price').text());
+
             });
 
             /* Calculate totals */

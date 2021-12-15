@@ -62,7 +62,7 @@ class Product(models.Model):
     is_active = models.BooleanField(default=False, verbose_name='فعال/غیرفعال')
     Tag = models.ManyToManyField(Tag, blank=True, verbose_name='برچسب ها')
     category = models.ManyToManyField(Category, blank=True, verbose_name='دسته بندی')
-    Discount = models.CharField(max_length=120)
+    Discount = models.IntegerField()
     DiscountTime = models.DateTimeField(blank=True, default=None)
     DiscountActive = models.BooleanField(default=False)
 
@@ -80,9 +80,6 @@ class Product(models.Model):
 
     def get_image_url(self):
         return f"/media/{self.image}"
-
-    def DiscountPrice(self):
-        return self.price * self.Discount
 
 
 class Gallery(models.Model):

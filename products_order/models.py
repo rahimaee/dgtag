@@ -27,7 +27,12 @@ class Order(models.Model):
     def get_total_price(self):
         amount = 0
         for detail in self.orderdetail_set.all():
-            amount += detail.price * detail.count
+            temp = detail.product.DiscountActive
+            print(detail.Discount)
+            if temp is True:
+                amount += detail.Discount * detail.count
+            else:
+                amount += detail.price * detail.count
         return amount
 
 
@@ -36,7 +41,7 @@ class OrderDetail(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='محصول')
     price = models.IntegerField(verbose_name='قیمت محصول')
     count = models.IntegerField(verbose_name='تعداد')
-    Discount = models.CharField(max_length=120)
+    Discount = models.IntegerField(blank=True)
 
     class Meta:
         verbose_name = 'جرییات محصول'
@@ -46,7 +51,7 @@ class OrderDetail(models.Model):
         return self.product.title
 
     def get_detail_some(self):
-        if self.product.DiscountActive == 'True':
-            return self.count * self.product.price * self.product.DiscountActive
+        if self.product.DiscountActive is True:
+            return self.count * self.product.Discount
         else:
             return self.count * self.product.price

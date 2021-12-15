@@ -36,6 +36,8 @@ def add_user_order(request):
         if up is not None:
             up.count += count
             up.price = product.price
+            if product.Discount is not None:
+                up.Discount = product.Discount
             up.save()
         else:
             order.orderdetail_set.create(product_id=product_id, price=product.price, count=count)
@@ -60,7 +62,13 @@ def add_shop_on_home(request, *args, **kwargs):
                 up.Discount = product.Discount
             up.save()
         else:
-            order.orderdetail_set.create(product_id=product_id, price=product.price, count=count)
+            if product.DiscountActive is True:
+                order.orderdetail_set.create(product_id=product_id, price=product.price, count=count,
+                                             Discount=product.Discount)
+
+            else:
+                order.orderdetail_set.create(product_id=product_id, price=product.price, count=count,
+                                             Discount=0)
         return redirect('/open-order')
 
 
@@ -77,6 +85,9 @@ def user_open_order(request):
     for pro in all_order_detail:
         if pro is not None:
             pro.price = Product.objects.filter(pk=pro.product.pk).first().price
+            pro1 = Product.objects.filter(pk=pro.product.pk).first()
+            if pro1.DiscountActive == 'True':
+                pro.Discount = Product.objects.filter(pk=pro.product.pk).first().Discount
             pro.save()
     open_order = Order.objects.filter(owner_id=user_id, is_paid=False).first()
     if open_order is not None:

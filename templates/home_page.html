@@ -412,9 +412,159 @@
                 <div class="col-md-10">
                     <div class="deal-slider-area" data-aos="fade-up">
                         <div class="deal-slider">
+                            {% for foo in AllProductsDiscount %}
+                                <div class="item">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="left-area">
+                                                    <img src="{{ foo.image.url }}" alt="{{ foo.title }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 d-flex">
+                                                <div class="right-area">
+                                                    <ul class="stars">
+                                                        <li>
+                                                            <i class="fas fa-star"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star"></i>
+                                                        </li>
+                                                    </ul>
+                                                    <h4 class="name">
+                                                       {{ foo.title }}
+                                                    </h4>
+                                                    <p class="description">
+                                                       {{ foo.description}}
+                                                    </p>
+                                                    <div class="price">
+                                                        <p>
+                                                            <span>{{ foo.Discount }} تومان</span>
+                                                            <del>{{ foo.price }}تومان</del>
+                                                        </p>
+                                                    </div>
+                                                    <div class="links">
+                                                        <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-
-
+                            {% endfor %}
+                            <div class="item">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="left-area">
+                                                <img src="assets/images/w1.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 d-flex">
+                                            <div class="right-area">
+                                                <ul class="stars">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="name">
+                                                    ساعت هوشمند آبی
+                                                </h4>
+                                                <p class="description">
+                                                    لورم ایپسوم متن ساختگی با صنعت چاپ است
+                                                </p>
+                                                <div class="price">
+                                                    <p>
+                                                        <span>100 تومان</span>
+                                                        <del>200 تومان</del>
+                                                    </p>
+                                                </div>
+                                                <div class="deal-counter">
+                                                    <div data-countdown="2020/12/09"></div>
+                                                </div>
+                                                <div class="links">
+                                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="left-area">
+                                                <img src="assets/images/w1.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 d-flex">
+                                            <div class="right-area">
+                                                <ul class="stars">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                    </li>
+                                                </ul>
+                                                <h4 class="name">
+                                                    ساعت هوشمند آبی
+                                                </h4>
+                                                <p class="description">
+                                                    لورم ایپسوم متن ساختگی با صنعت چاپ است
+                                                </p>
+                                                <div class="price">
+                                                    <p>
+                                                        <span>100 تومان</span>
+                                                        <del>200 تومان</del>
+                                                    </p>
+                                                </div>
+                                                <div class="deal-counter">
+                                                    <div data-countdown="2020/12/09"></div>
+                                                </div>
+                                                <div class="links">
+                                                    <a href="#" class="mybtn3 mybtn-bg"><span>همین حالا بخرید</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

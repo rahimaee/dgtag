@@ -9,7 +9,7 @@ def all_invoice(request):
     userid = request.user.id
     if userid is None:
         raise Http404()
-    all_order = Order.objects.filter(owner_id=userid, is_paid=True).all()
+    all_order = Order.objects.filter(owner_id=userid, is_paid=False).all()
     context = {
         'all_order': all_order
     }
@@ -18,4 +18,4 @@ def all_invoice(request):
 
 def invoice_detail(request, *args, **kwargs):
     context = {}
-    return render(request, '', context)
+    return render(request, 'userpanel_invoice/user_invoice_detail.html', context)
