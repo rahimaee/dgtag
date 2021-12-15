@@ -56,6 +56,8 @@ def add_shop_on_home(request, *args, **kwargs):
         if up is not None:
             up.count += count
             up.price = product.price
+            if product.Discount is not None:
+                up.Discount = product.Discount
             up.save()
         else:
             order.orderdetail_set.create(product_id=product_id, price=product.price, count=count)

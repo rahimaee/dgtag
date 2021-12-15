@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 
 from home_comments.views import comment_partial_view
 from home_newsletters.views import news_letters_partial_view
-from .views import home_page, test, shop
+from .views import home_page
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -39,9 +39,7 @@ urlpatterns = [
     path('userpanel/', include('userpanel_profile.urls', namespace='userpanel_profile')),
     path('userpanel/', include('userpanel_changepassword.urls', namespace='userpanel_changepassword')),
     path('userpanel/', include('userpanel_map.urls', namespace='userpanel_map')),
-    path('userpanel/', include('userpanel_invoice.urls', namespace='serpanel_invoice')),
-    path('test', test, name='hamed'),
-    path('shop', shop, name='shop'),
+    path('userpanel/', include('userpanel_invoice.urls', namespace='userpanel_invoice')),
     path('admin/', admin.site.urls),
 
 ]

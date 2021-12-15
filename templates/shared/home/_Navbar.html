@@ -14,16 +14,30 @@
                     <div class="collapse navbar-collapse" id="mainmenu">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#home">صفحه اصلی</a>
+                                <a class="nav-link" href="{% url 'starting_page' %}">صفحه اصلی</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about">درباره ما</a>
+                                {% if  request.path == "/" %}
+                                    <a class="nav-link" href="#about">درباره ما</a>
+                                {% else %}
+                                    <a class="nav-link" href="{% url 'starting_page' %}#about">درباره ما</a>
+                                {% endif %}
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#feature">ویژگی ها</a>
+
+                                {% if  request.path == "/" %}
+                                    <a class="nav-link" href="#feature">ویژگی ها</a>
+                                {% else %}
+                                    <a class="nav-link" href="{% url 'starting_page' %}#feature">ویژگی ها</a>
+                                {% endif %}
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#pricing">محصولات</a>
+                                {% if  request.path == "/" %}
+                                    <a class="nav-link" href="#pricing">محصولات</a>
+                                {% else %}
+                                    <a class="nav-link" href="{% url 'starting_page' %}#pricing">محصولات</a>
+                                {% endif %}
+
                             </li>
                             <li class="nav-item dropdown ">
                                 <a class="nav-link active dropdown-toggle" role="button" data-toggle="dropdown"
@@ -66,10 +80,20 @@
                                 <a class="nav-link" href="#testimonial-area">سفارش</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#faq">پرسش و پاسخ</a>
+                                {% if  request.path == "/" %}
+                                    <a class="nav-link" href="#faq">پرسش و پاسخ</a>
+                                {% else %}
+                                    <a class="nav-link" href="{% url 'starting_page' %}#faq">پرسش و پاسخ</a>
+                                {% endif %}
+
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#contact">ارتباط با ما</a>
+                                {% if  request.path == "/" %}
+                                    <a class="nav-link" href="#contact">ارتباط با ما</a>
+                                {% else %}
+                                    <a class="nav-link" href="{% url 'starting_page' %}#contact">ارتباط با ما</a>
+                                {% endif %}
+
                             </li>
                             {% if request.user.is_authenticated %}
 
@@ -77,7 +101,7 @@
                                     <a class="nav-link" href="{% url 'userpanel:user-home-page' %}">حساب کاربری</a>
                                 </li>
                             {% else %}
-                                 <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link" href="{% url 'account:login' %}">ورود</a>
                                 </li>
                                 <li class="nav-item">

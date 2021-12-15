@@ -36,6 +36,7 @@ class OrderDetail(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='محصول')
     price = models.IntegerField(verbose_name='قیمت محصول')
     count = models.IntegerField(verbose_name='تعداد')
+    Discount = models.CharField(max_length=120)
 
     class Meta:
         verbose_name = 'جرییات محصول'
@@ -45,4 +46,7 @@ class OrderDetail(models.Model):
         return self.product.title
 
     def get_detail_some(self):
-        return self.count * self.product.price
+        if self.product.DiscountActive == 'True':
+            return self.count * self.product.price * self.product.DiscountActive
+        else:
+            return self.count * self.product.price

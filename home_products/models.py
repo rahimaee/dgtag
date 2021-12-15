@@ -62,6 +62,10 @@ class Product(models.Model):
     is_active = models.BooleanField(default=False, verbose_name='فعال/غیرفعال')
     Tag = models.ManyToManyField(Tag, blank=True, verbose_name='برچسب ها')
     category = models.ManyToManyField(Category, blank=True, verbose_name='دسته بندی')
+    Discount = models.CharField(max_length=120)
+    DiscountTime = models.DateTimeField(blank=True, default=None)
+    DiscountActive = models.BooleanField(default=False)
+
     objects = ProductManager()
 
     class Meta:
